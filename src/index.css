@@ -9,10 +9,12 @@
     box-sizing: border-box;
   }
   body {
-    @apply bg-dark-900 text-slate-200 antialiased;
+    background-color: #0A192F;
+    color: #e2e8f0;
     font-family: 'Inter', system-ui, sans-serif;
     margin: 0;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', system-ui, sans-serif;
@@ -21,27 +23,73 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-accent-primary hover:bg-primary-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl;
+    background-color: #38BDF8;
+    color: white;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    transform: scale(1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-primary:hover {
+    background-color: #0284c7;
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   }
 
   .btn-secondary {
-    @apply bg-accent-secondary hover:bg-green-600 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl;
+    background-color: #22C55E;
+    color: white;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    transform: scale(1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-secondary:hover {
+    background-color: #16a34a;
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
   }
 
   .section-padding {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
+    padding: 5rem 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-padding {
+      padding: 5rem 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding: 5rem 2rem;
+    }
   }
 
   .container {
-    @apply max-w-7xl mx-auto;
+    max-width: 80rem;
+    margin: 0 auto;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-accent-primary to-accent-secondary bg-clip-text text-transparent;
+    background: linear-gradient(to right, #38BDF8, #22C55E);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
   .card-dark {
-    @apply bg-dark-800 border border-slate-700 rounded-xl p-8;
+    background-color: #111827;
+    border: 1px solid #374151;
+    border-radius: 0.75rem;
+    padding: 2rem;
   }
 }
 

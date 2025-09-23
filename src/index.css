@@ -1,127 +1,56 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap');
+/* Simple test CSS - debugging styling issues */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    background-color: #0A192F;
-    color: #e2e8f0;
-    font-family: 'Inter', system-ui, sans-serif;
-    margin: 0;
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', system-ui, sans-serif;
-  }
+* {
+  box-sizing: border-box;
 }
 
-@layer components {
-  .btn-primary {
-    background-color: #38BDF8;
-    color: white;
-    font-weight: 600;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
-    transform: scale(1);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .btn-primary:hover {
-    background-color: #0284c7;
-    transform: scale(1.05);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  }
-
-  .btn-secondary {
-    background-color: #22C55E;
-    color: white;
-    font-weight: 600;
-    padding: 1rem 2rem;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
-    transform: scale(1);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-
-  .btn-secondary:hover {
-    background-color: #16a34a;
-    transform: scale(1.05);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-  }
-
-  .section-padding {
-    padding: 5rem 1rem;
-  }
-
-  @media (min-width: 640px) {
-    .section-padding {
-      padding: 5rem 1.5rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .section-padding {
-      padding: 5rem 2rem;
-    }
-  }
-
-  .container {
-    max-width: 80rem;
-    margin: 0 auto;
-  }
-
-  .gradient-text {
-    background: linear-gradient(to right, #38BDF8, #22C55E);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-
-  .card-dark {
-    background-color: #111827;
-    border: 1px solid #374151;
-    border-radius: 0.75rem;
-    padding: 2rem;
-  }
+body {
+  background-color: #0A192F !important;
+  color: #e2e8f0 !important;
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
 }
 
-/* Custom animations */
-@keyframes dataFlow {
-  0% { transform: translateX(-100px) opacity(0); }
-  50% { transform: translateX(0px) opacity(1); }
-  100% { transform: translateX(100px) opacity(0); }
+h1 {
+  color: #38BDF8 !important;
+  font-size: 3rem !important;
+  text-align: center !important;
+  margin: 2rem 0 !important;
 }
 
-.animate-data-flow {
-  animation: dataFlow 3s linear infinite;
+.btn-primary {
+  background-color: #38BDF8 !important;
+  color: white !important;
+  padding: 1rem 2rem !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+.section-padding {
+  padding: 3rem 1rem !important;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+.container {
+  max-width: 80rem !important;
+  margin: 0 auto !important;
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-dark-800;
+.card-dark {
+  background-color: #111827 !important;
+  border: 1px solid #374151 !important;
+  border-radius: 0.75rem !important;
+  padding: 2rem !important;
+  margin: 1rem 0 !important;
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-accent-primary rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary-600;
+/* Debug test */
+.debug-test {
+  background-color: red !important;
+  color: white !important;
+  padding: 20px !important;
+  margin: 20px !important;
+  font-size: 24px !important;
 }

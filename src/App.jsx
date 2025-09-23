@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
   ArrowRight,
@@ -9,14 +9,21 @@ import {
   Target,
   Mail,
   Linkedin,
-  Calculator
+  Calculator,
+  Menu,
+  TrendingUp,
+  Users,
+  Trophy,
+  X
 } from 'lucide-react'
 
 function App() {
   return (
     <div className="app">
+      <NavigationBar />
       <HeroSection />
       <TechSection />
+      <StatsSection />
       <ProblemSection />
       <SolutionSection />
       <HowItWorksSection />
@@ -65,8 +72,8 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Stop Losing Bids to{' '}
-          <span className="gradient-text">Slower Competitors</span>
+          Stop Losing Jobs to{' '}
+          <span className="gradient-text">Faster Quotes</span>
         </motion.h1>
 
         <motion.h2
@@ -75,18 +82,8 @@ function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          We build custom AI pipelines that turn your RFQ chaos into cash flow.
-          Get accurate proposals to your clients in minutes, not days.
+          We build a custom AI system that creates your proposals in minutes. Win more work by being the first to respond.
         </motion.h2>
-
-        <motion.p
-          className="hero-description"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          Custom automation for CNC machining and HVAC companies that actually works with your existing tools
-        </motion.p>
 
         <motion.button
           className="btn-primary hero-cta"
@@ -106,7 +103,66 @@ function HeroSection() {
 // Tech Section
 function TechSection() {
   const techs = [
-    'OpenAI', 'Google Cloud', 'AWS', 'Twilio', 'PandaDoc', 'Make.com'
+    {
+      name: 'OpenAI',
+      logo: '/logos/OpenAI_Logo.svg.png',
+      fallback: 'OpenAI'
+    },
+    {
+      name: 'Google Gemini',
+      logo: '/logos/Google_Gemini_logo.svg.png',
+      fallback: 'Gemini'
+    },
+    {
+      name: 'Claude AI',
+      logo: '/logos/Claude_AI_logo-removebg-preview.png',
+      fallback: 'Claude'
+    },
+    {
+      name: 'AWS',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg',
+      fallback: 'AWS'
+    },
+    {
+      name: 'Google Cloud',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg',
+      fallback: 'Google Cloud'
+    },
+    {
+      name: 'Zapier',
+      logo: '/logos/Zapier-logo-removebg-preview.png',
+      fallback: 'Zapier'
+    },
+    {
+      name: 'Make.com',
+      logo: '/logos/make.png',
+      fallback: 'Make.com'
+    },
+    {
+      name: 'Twilio',
+      logo: '/logos/Twilio_logo.png',
+      fallback: 'Twilio'
+    },
+    {
+      name: 'PandaDoc',
+      logo: '/logos/PandaDoc_Logo_PNG.png',
+      fallback: 'PandaDoc'
+    },
+    {
+      name: 'Airtable',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Airtable_Logo.svg',
+      fallback: 'Airtable'
+    },
+    {
+      name: 'Notion',
+      logo: '/logos/notion.png',
+      fallback: 'Notion'
+    },
+    {
+      name: 'Microsoft Azure',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg',
+      fallback: 'Azure'
+    }
   ]
 
   return (
@@ -118,14 +174,36 @@ function TechSection() {
         <div className="tech-grid">
           {techs.map((tech, index) => (
             <motion.div
-              key={tech}
+              key={tech.name}
               className="tech-item"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              {tech}
+              {tech.logo ? (
+                <>
+                  <img
+                    src={tech.logo}
+                    alt={tech.name}
+                    className="tech-logo"
+                    onError={(e) => {
+                      e.target.style.display = 'none'
+                      e.target.parentElement.querySelector('.tech-text').style.display = 'block'
+                    }}
+                  />
+                  <span
+                    className="tech-text"
+                    style={{ display: 'none' }}
+                  >
+                    {tech.fallback}
+                  </span>
+                </>
+              ) : (
+                <span className="tech-text">
+                  {tech.fallback}
+                </span>
+              )}
             </motion.div>
           ))}
         </div>
@@ -149,13 +227,14 @@ function ProblemSection() {
         <div className="two-column">
           <div>
             <motion.h2
-              className="section-title gradient-text"
+              className="section-title"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Does Your Quoting Process Feel Stuck in the Stone Age?
+              Does Your Quoting Process Feel{' '}
+              <span className="gradient-text">Stuck in the Stone Age?</span>
             </motion.h2>
 
             <div className="problem-list">
@@ -173,14 +252,32 @@ function ProblemSection() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              className="text-center"
+              style={{ marginTop: '2rem' }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <p style={{ color: '#cbd5e1', marginBottom: '1rem' }}>Ready to escape this cycle?</p>
+              <button
+                className="btn-secondary"
+                onClick={() => document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                See What You're Losing
+                <Calculator className="icon" />
+              </button>
+            </motion.div>
           </div>
 
           <div className="problem-visual">
-            <div className="card-dark">
+            <div className="problem-card">
               <div className="text-center">
                 <Clock className="clock-icon" />
-                <h3>Your Current Reality</h3>
-                <p>3+ hours per quote, 20% win rate, endless manual work</p>
+                <h3>The High Cost of Waiting</h3>
+                <p>A slow quoting process doesn't just feel frustrating—it costs you real money. Every hour you spend manually creating a quote is an hour a competitor is using to win your customer.</p>
               </div>
             </div>
           </div>
@@ -220,7 +317,7 @@ function SolutionSection() {
 
         <div className="two-column">
           <motion.div
-            className="card-dark before-card"
+            className="problem-card before-card"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -238,7 +335,7 @@ function SolutionSection() {
           </motion.div>
 
           <motion.div
-            className="card-dark after-card"
+            className="solution-card after-card"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -255,6 +352,26 @@ function SolutionSection() {
             <p>One seamless flow, 90% time reduction, higher win rates</p>
           </motion.div>
         </div>
+
+        <motion.div
+          className="text-center"
+          style={{ marginTop: '4rem' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
+          <p style={{ color: '#cbd5e1', fontSize: '1.125rem', marginBottom: '1.5rem' }}>
+            Want to see this transformation in your business?
+          </p>
+          <button
+            className="btn-primary"
+            onClick={() => document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Book Your Free Pipeline Audit
+            <ArrowRight className="icon" />
+          </button>
+        </motion.div>
       </div>
     </section>
   )
@@ -270,7 +387,7 @@ function HowItWorksSection() {
     },
     {
       icon: Zap,
-      title: 'We Build Your Custom Pipeline',
+      title: 'We Build Your Pipeline',
       description: 'Our team builds and integrates your custom AI engine within 14 days.'
     },
     {
@@ -308,15 +425,46 @@ function HowItWorksSection() {
                 <div className="step-icon-bg">
                   <step.icon className="step-icon" />
                 </div>
-                <div className="step-number">
-                  {index + 1}
-                </div>
               </div>
               <h3>{step.title}</h3>
               <p>{step.description}</p>
             </motion.div>
           ))}
         </div>
+
+        <motion.p
+          className="text-center"
+          style={{
+            fontSize: '1.25rem',
+            color: '#059669',
+            fontWeight: '600',
+            marginTop: '3rem',
+            fontStyle: 'italic'
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          viewport={{ once: true }}
+        >
+          Yes, it is that simple to win more bids
+        </motion.p>
+
+        <motion.div
+          className="text-center"
+          style={{ marginTop: '2rem' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          viewport={{ once: true }}
+        >
+          <button
+            className="btn-secondary"
+            onClick={() => document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Start Step 1: See Your Costs
+            <Calculator className="icon" />
+          </button>
+        </motion.div>
       </div>
     </section>
   )
@@ -332,6 +480,9 @@ function CalculatorSection() {
     avgJobValue: ''
   })
   const [results, setResults] = useState(null)
+  const [showModal, setShowModal] = useState(false)
+  const [leadData, setLeadData] = useState({ name: '', email: '' })
+  const [pendingResults, setPendingResults] = useState(null)
 
   const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }))
@@ -359,7 +510,7 @@ function CalculatorSection() {
     const timeSavings = monthlyHours * 0.9
     const costSavings = timeSavings * hourlyCost * 12
 
-    setResults({
+    const calculatedResults = {
       monthlyHours,
       monthlyLaborCost,
       annualLaborCost,
@@ -370,7 +521,27 @@ function CalculatorSection() {
       costSavings,
       additionalRevenue,
       totalImpact: costSavings + additionalRevenue
-    })
+    }
+
+    // Store results and show modal instead of displaying immediately
+    setPendingResults(calculatedResults)
+    setShowModal(true)
+  }
+
+  const handleLeadSubmit = (e) => {
+    e.preventDefault()
+    if (!leadData.name || !leadData.email) {
+      alert('Please enter your name and email to see results.')
+      return
+    }
+
+    // Here you would typically send the lead data to your backend
+    console.log('Lead captured:', leadData)
+    console.log('Calculator data:', formData)
+
+    // Show results and close modal
+    setResults(pendingResults)
+    setShowModal(false)
   }
 
   return (
@@ -466,7 +637,7 @@ function CalculatorSection() {
                 className="btn-primary calculate-btn"
                 onClick={calculateSavings}
               >
-                Calculate My Savings
+                See My Quoting Costs
               </button>
             </div>
           </motion.div>
@@ -478,76 +649,89 @@ function CalculatorSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <div className="card-dark">
-              <h3>Don't Guess. Quantify.</h3>
-              <p>
+            <div className="card-light" style={{ color: '#374151' }}>
+              <h3 style={{ color: '#1f2937', marginBottom: '1rem' }}>Don't Guess. Quantify.</h3>
+              <p style={{ color: '#4b5563', marginBottom: '1.5rem' }}>
                 Most business owners have no idea how much their slow quoting process
                 is actually costing them. The results might shock you.
               </p>
               <div className="benefit-list">
                 <div className="benefit-item">
-                  <CheckCircle className="benefit-icon" />
-                  <span>See your exact time and cost waste</span>
+                  <CheckCircle className="benefit-icon" style={{ color: '#059669' }} />
+                  <span style={{ color: '#374151' }}>See your exact time and cost waste</span>
                 </div>
                 <div className="benefit-item">
-                  <CheckCircle className="benefit-icon" />
-                  <span>Calculate potential revenue gains</span>
+                  <CheckCircle className="benefit-icon" style={{ color: '#059669' }} />
+                  <span style={{ color: '#374151' }}>Calculate potential revenue gains</span>
                 </div>
                 <div className="benefit-item">
-                  <CheckCircle className="benefit-icon" />
-                  <span>Understand your competitive disadvantage</span>
+                  <CheckCircle className="benefit-icon" style={{ color: '#059669' }} />
+                  <span style={{ color: '#374151' }}>Understand your competitive disadvantage</span>
                 </div>
               </div>
             </div>
 
-            {results && (
-              <motion.div
-                className="card-dark results-card"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                <h3 className="results-title">Your Quoting Reality Check</h3>
+            <motion.div
+              className="card-dark results-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="results-title">Your Quoting Reality Check</h3>
 
-                <div className="results-grid">
-                  <div className="result-row">
-                    <span>Monthly Time Spent:</span>
-                    <span className="result-bad">{results.monthlyHours} hours</span>
-                  </div>
-                  <div className="result-row">
-                    <span>Annual Labor Cost:</span>
-                    <span className="result-bad">${results.annualLaborCost.toLocaleString()}</span>
-                  </div>
-                  <div className="result-row">
-                    <span>Current Win Rate:</span>
-                    <span>{results.winRate}% ({results.wonJobs.toFixed(1)} jobs/month)</span>
-                  </div>
-
-                  <div className="results-divider"></div>
-
-                  <div className="result-row">
-                    <span>Potential Annual Time Savings:</span>
-                    <span className="result-good">{results.timeSavings.toFixed(0)} hours</span>
-                  </div>
-                  <div className="result-row">
-                    <span>Potential Cost Savings:</span>
-                    <span className="result-good">${results.costSavings.toLocaleString()}</span>
-                  </div>
-                  <div className="result-row">
-                    <span>Additional Revenue (10% win rate boost):</span>
-                    <span className="result-good">${results.additionalRevenue.toLocaleString()}</span>
-                  </div>
-
-                  <div className="total-impact">
-                    <p>
-                      Total Annual Impact: <span className="impact-amount">
-                        ${Math.round(results.totalImpact / 1000)}K+
-                      </span>
-                    </p>
-                    <p className="impact-subtitle">in savings and additional revenue</p>
-                  </div>
+              <div className="results-grid">
+                <div className="result-row">
+                  <span>Monthly Time Spent:</span>
+                  <span className={results ? "result-bad" : "result-placeholder"}>
+                    {results ? `${results.monthlyHours} hours` : "--- hours"}
+                  </span>
+                </div>
+                <div className="result-row">
+                  <span>Annual Labor Cost:</span>
+                  <span className={results ? "result-bad" : "result-placeholder"}>
+                    {results ? `$${results.annualLaborCost.toLocaleString()}` : "$---,---"}
+                  </span>
+                </div>
+                <div className="result-row">
+                  <span>Current Win Rate:</span>
+                  <span className={results ? "" : "result-placeholder"}>
+                    {results ? `${results.winRate}% (${results.wonJobs.toFixed(1)} jobs/month)` : "---% (--- jobs/month)"}
+                  </span>
                 </div>
 
+                <div className="results-divider"></div>
+
+                <div className="result-row">
+                  <span>Potential Annual Time Savings:</span>
+                  <span className={results ? "result-good" : "result-placeholder"}>
+                    {results ? `${results.timeSavings.toFixed(0)} hours` : "--- hours"}
+                  </span>
+                </div>
+                <div className="result-row">
+                  <span>Potential Cost Savings:</span>
+                  <span className={results ? "result-good" : "result-placeholder"}>
+                    {results ? `$${results.costSavings.toLocaleString()}` : "$---,---"}
+                  </span>
+                </div>
+                <div className="result-row">
+                  <span>Additional Revenue (10% win rate boost):</span>
+                  <span className={results ? "result-good" : "result-placeholder"}>
+                    {results ? `$${results.additionalRevenue.toLocaleString()}` : "$---,---"}
+                  </span>
+                </div>
+
+                <div className="total-impact">
+                  <p>
+                    Total Annual Impact: <span className={results ? "impact-amount" : "impact-placeholder"}>
+                      {results ? `$${Math.round(results.totalImpact / 1000)}K+` : "$---K+"}
+                    </span>
+                  </p>
+                  <p className="impact-subtitle">in savings and additional revenue</p>
+                </div>
+              </div>
+
+              {results && (
                 <div className="results-cta">
                   <p>Ready to see how our AI can make this a reality?</p>
                   <button className="btn-secondary">
@@ -555,11 +739,62 @@ function CalculatorSection() {
                     <ArrowRight className="icon" />
                   </button>
                 </div>
-              </motion.div>
-            )}
+              )}
+            </motion.div>
           </motion.div>
         </div>
       </div>
+
+      {/* Lead Capture Modal */}
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <motion.div
+            className="modal-content"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="modal-close"
+              onClick={() => setShowModal(false)}
+            >
+              <X className="icon" />
+            </button>
+
+            <h2 className="modal-title">Your Results Are Ready!</h2>
+            <p className="modal-subtitle">
+              Enter your name and email below to instantly see your full cost breakdown.
+            </p>
+
+            <form className="modal-form" onSubmit={handleLeadSubmit}>
+              <input
+                type="text"
+                className="modal-input"
+                placeholder="Your Name"
+                value={leadData.name}
+                onChange={(e) => setLeadData(prev => ({ ...prev, name: e.target.value }))}
+                required
+              />
+              <input
+                type="email"
+                className="modal-input"
+                placeholder="Your Email"
+                value={leadData.email}
+                onChange={(e) => setLeadData(prev => ({ ...prev, email: e.target.value }))}
+                required
+              />
+              <button
+                type="submit"
+                className="btn-primary modal-submit"
+              >
+                Show Me My Results
+                <ArrowRight className="icon" />
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      )}
     </section>
   )
 }
@@ -597,7 +832,7 @@ function FounderSection() {
             </div>
             <div className="founder-cta">
               <button className="btn-primary">
-                Let's Talk About Your Pipeline
+                Here to help
                 <ArrowRight className="icon" />
               </button>
             </div>
@@ -663,7 +898,10 @@ function FinalCTASection() {
         </motion.button>
 
         <p className="cta-note">
-          No obligation. No sales pressure. Just actionable insights.
+          This 20-minute call will be the best time you spend on your business this week.
+        </p>
+        <p className="cta-note">
+          No obligation. No sales pressure. Just real advice.
         </p>
       </div>
     </section>
@@ -709,6 +947,105 @@ function Footer() {
         </div>
       </div>
     </footer>
+  )
+}
+
+// Navigation Bar
+function NavigationBar() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  return (
+    <nav className={`nav-bar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="nav-content">
+        <div className="nav-logo">Codeflow Nation</div>
+
+        <div className="nav-links">
+          <a href="#problem" className="nav-link">Problem</a>
+          <a href="#solution" className="nav-link">Solution</a>
+          <a href="#calculator" className="nav-link">Calculator</a>
+          <a href="#founder" className="nav-link">About</a>
+        </div>
+
+        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+          <button
+            className="btn-secondary nav-cta"
+            onClick={() => document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' })}
+            style={{ fontSize: '0.75rem', padding: '0.5rem 1rem' }}
+          >
+            Calculator
+          </button>
+          <button
+            className="btn-primary nav-cta"
+            onClick={() => document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Book Free Audit
+          </button>
+        </div>
+      </div>
+    </nav>
+  )
+}
+
+// Stats Section
+function StatsSection() {
+  const stats = [
+    {
+      number: '90%',
+      label: 'Time Saved',
+      description: 'Hours to minutes per quote'
+    },
+    {
+      number: '3x',
+      label: 'Speed Boost',
+      description: 'Beat competitors to every bid'
+    },
+    {
+      number: '50+',
+      label: 'Success Stories',
+      description: 'Manufacturers automated'
+    },
+    {
+      number: '95%',
+      label: 'Win Rate',
+      description: 'More proposals accepted'
+    }
+  ]
+
+  return (
+    <section className="stats-section">
+      <div className="stats-staggered">
+        {stats.map((stat, index) => (
+          <motion.div
+            key={stat.label}
+            className="stat-row"
+            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true }}
+          >
+            <div className="stat-content">
+              <div className="stat-description">{stat.description}</div>
+            </div>
+            <div className="stat-visual">
+              <div className="stat-circle">
+                <div className="stat-circle-content">
+                  <div className="stat-number">{stat.number}</div>
+                  <div className="stat-label">{stat.label}</div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   )
 }
 

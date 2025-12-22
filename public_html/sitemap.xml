@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- Main Pages -->
+<url>
+  <loc>https://www.rslmediahub.com/</loc>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.rslmediahub.com/case-studies/</loc>
+  <priority>0.90</priority>
+</url>
+<url>
+  <loc>https://www.rslmediahub.com/blogs/</loc>
+  <priority>0.90</priority>
+</url>
+
+<!-- Case Studies -->
+<url>
+  <loc>https://www.rslmediahub.com/case-studies/casagrande-salon-case-study.html</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.rslmediahub.com/case-studies/spice-on-a-slice-case-study.html</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.rslmediahub.com/case-studies/rsl-blog-automation-case-study.html</loc>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.rslmediahub.com/case-studies/united-sikhs-case-study.html</loc>
+  <priority>0.80</priority>
+</url>
+
+<!-- Legal Pages -->
+<url>
+  <loc>https://www.rslmediahub.com/privacy-policy.html</loc>
+  <priority>0.10</priority>
+</url>
+<url>
+  <loc>https://www.rslmediahub.com/terms-conditions.html</loc>
+  <priority>0.10</priority>
+</url>
+
+</urlset>

@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- THIS IS THE MOST IMPORTANT TAG -->
+    <!-- It tells Google to NOT index this page -->
+    <meta name="robots" content="noindex, nofollow">
+    
+    <meta name="description" content="Contact RSL Media Hub. Fill out our inquiry form and a member of our team will get back to you shortly.">
+    <title>Inquiry Form | RSL Media Hub</title>
+    
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml"> <!-- Note: ../ to go up one folder -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- NEW: CSS for the International Phone Input Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css" />
+    
+    <!-- 
+      GOOGLE ANALYTICS
+      --------------------------------------------------
+      Your G-YJF8J7Z3M4 tag is now live.
+    -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJF8J7Z3M4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YJF8J7Z3M4');
+    </script>
+    <!-- 
+      END GOOGLE ANALYTICS
+      --------------------------------------------------
+    -->
+
+    <!-- 
+      SAB (SERVICE AREA BUSINESS) SCHEMA
+      --------------------------------------------------
+      This new schema matches your GBP (no address).
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "RSL Media Hub",
+      "image": "https://www.rslmediahub.com/logo.png",
+      "@id": "https://www.rslmediahub.com/",
+      "url": "https://www.rslmediahub.com/",
+      "telephone": "+15162006599",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "sameAs": [
+        "https://www.instagram.com/rahul.lalia/",
+        "https://www.tiktok.com/@rahul_lalia",
+        "https://www.linkedin.com/in/rahullalia/"
+      ] 
+    }
+    </script>
+    <!-- 
+      END SAB SCHEMA
+      --------------------------------------------------
+    -->
+
+    <!-- 
+      BREADCRUMB SCHEMA
+      --------------------------------------------------
+      Tells Google the structure of this page.
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.rslmediahub.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Inquiry Form",
+        "item": "https://www.rslmediahub.com/inquiry-form/"
+      }]
+    }
+    </script>
+    <!-- 
+      END BREADCRUMB SCHEMA
+      --------------------------------------------------
+    -->
+
+    <style>
+        /* --- 1. CORE VARIABLES & RESET --- */
+        :root {
+            --bg-dark: #050505;
+            --bg-dark-alt: #080808;
+            --text-main: #ffffff;
+            --text-muted: #a1a1a1;
+            --accent-orange: #ff4d28;
+            --accent-hover: #ff7a5c;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --card-radius: 20px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 700; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+
+        /* --- 2. AMBIENT BACKGROUND --- */
+        .ambient-light {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: 
+                radial-gradient(circle at 50% -20%, rgba(255, 77, 40, 0.15), transparent 60%),
+                radial-gradient(circle at 85% 30%, rgba(255, 77, 40, 0.05), transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- 3. NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 90px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 5%; z-index: 100;
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav-logo { display: flex; align-items: center; height: 100%; }
+        .nav-logo img { height: 50px; width: auto; }
+
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { 
+            font-size: 0.9rem; font-weight: 500; letter-spacing: 0.5px;
+            color: var(--text-muted); position: relative; text-transform: uppercase;
+        }
+        .nav-links a:hover { color: var(--text-main); }
+
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .btn-talk {
+            padding: 10px 24px; border: 1px solid var(--glass-border);
+            border-radius: 6px; background: var(--glass);
+            font-size: 0.9rem; font-weight: 600; white-space: nowrap;
+        }
+        .btn-talk:hover { background: var(--text-main); color: var(--bg-dark); }
+        .btn-login {
+            padding: 10px 20px; font-size: 0.9rem; font-weight: 500;
+            color: var(--text-muted); border: 1px solid transparent;
+            border-radius: 6px; transition: var(--transition);
+        }
+        .btn-login:hover {
+            color: var(--text-main); background: rgba(255,255,255,0.05);
+            border-color: var(--glass-border);
+        }
+        
+        /* --- 4. FORM CONTAINER STYLES --- */
+        .form-page-container {
+            padding: 180px 5% 100px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .form-header h1 {
+            font-size: 3rem;
+            color: var(--text-main);
+            margin-bottom: 15px;
+        }
+        .form-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        .form-wrapper {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--card-radius);
+            padding: 40px;
+        }
+        
+        /* --- 5. FORM ELEMENT STYLES --- */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            background: rgba(0,0,0,0.2);
+            border: 1px solid var(--glass-border);
+            border-radius: 6px;
+            color: var(--text-main);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+            background: rgba(0,0,0,0.1);
+        }
+        
+        /* Browser-native validation error styling */
+        .form-group input:invalid:not(:placeholder-shown) {
+             border-color: #ff6b6b;
+        }
+
+        /* --- NEW: Styles for the Phone Input --- */
+        /* This ensures the library dropdown matches our dark theme */
+        .iti { 
+            width: 100%; 
+        }
+        .iti__dropdown-content, .iti__country-list {
+            background-color: #1a1a1a;
+            border: 1px solid var(--glass-border);
+            border-radius: 6px;
+        }
+        .iti__country {
+            color: var(--text-muted);
+        }
+        .iti__country:hover, .iti__country.iti__highlight {
+            background-color: var(--glass-border);
+        }
+        .iti__dial-code {
+            color: var(--accent-orange);
+        }
+        /* Ensure the input field itself is full width */
+        .form-group input#phone-intl {
+            padding-left: 58px; /* Make space for the flag */
+            width: 100%;
+        }
+        /* --- End Phone Input Styles --- */
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* Honeypot anti-spam field */
+        .honeypot-field {
+            display: none;
+        }
+
+        /* Checkbox styles */
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start; /* Align top for multi-line text */
+            margin-top: 10px;
+            margin-bottom: 25px;
+        }
+        .checkbox-group input {
+            width: auto;
+            height: 16px;
+            width: 16px;
+            margin-right: 12px;
+            margin-top: 4px; /* Align with first line of text */
+            accent-color: var(--accent-orange);
+            flex-shrink: 0;
+        }
+        .checkbox-group label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin: 0;
+            line-height: 1.5;
+        }
+        .checkbox-group label a {
+            color: var(--text-main);
+            border-bottom: 1px solid var(--glass-border);
+            white-space: nowrap;
+        }
+        .checkbox-group label a:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            display: inline-block;
+            width: 100%;
+            background: var(--accent-orange);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(255, 77, 40, 0.4);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-submit:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(255, 77, 40, 0.6);
+        }
+        .btn-submit:disabled {
+            background: #555;
+            color: #999;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Form success/error messages */
+        #form-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1rem;
+            padding: 15px;
+            border-radius: 6px;
+            display: none; /* Hidden by default */
+        }
+        #form-message.success {
+            background-color: rgba(40, 255, 100, 0.1);
+            border: 1px solid rgba(40, 255, 100, 0.3);
+            color: #5dff8d;
+            display: block;
+        }
+        #form-message.error {
+            background-color: rgba(255, 40, 40, 0.1);
+            border: 1px solid rgba(255, 40, 40, 0.3);
+            color: #ff6b6b;
+            display: block;
+        }
+
+
+        /* --- 6. FOOTER --- */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 80px 5% 40px; 
+            background: #020202;
+        }
+        .footer-main {
+            display: grid; 
+            /* UPDATED: Changed from 3-col to 2-col */
+            grid-template-columns: 1fr 1fr;
+            align-items: flex-start; /* Aligns items to the top */
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-contact { text-align: left; }
+        .footer-contact h4, .footer-socials h4 {
+            color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;
+        }
+        .footer-contact a { 
+            font-size: 1.1rem; color: white; border-bottom: 1px solid #333; 
+            line-height: 1.8;
+        }
+        .footer-contact a:hover { color: var(--accent-orange); border-color: var(--accent-orange); }
+        
+        /* REMOVED .footer-address styles */
+        
+        .footer-socials { text-align: right; }
+        .social-icons { display: flex; gap: 15px; justify-content: flex-end; }
+        .social-icons a {
+            width: 40px; height: 40px; border: 1px solid var(--glass-border);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: var(--transition);
+        }
+        .social-icons a svg { fill: #888; width: 18px; transition: 0.3s; }
+        .social-icons a:hover { border-color: white; }
+        .social-icons a:hover svg { fill: white; }
+        
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 20px; margin-top: 80px; padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.05); max-width: 1200px;
+            margin-left: auto; margin-right: auto; font-size: 0.85rem; color: #555;
+        }
+        .footer-links { display: flex; gap: 25px; }
+        .footer-links a { color: #555; }
+        .footer-links a:hover { color: var(--text-main); }
+
+        /* --- 7. COOKIE BANNER --- */
+        .cookie-banner {
+            position: fixed; bottom: 25px; left: 50%; width: 90%; max-width: 1100px;
+            background: #1a1a1a; border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 25px 30px;
+            display: flex; align-items: center; justify-content: space-between; gap: 20px;
+            z-index: 9999; opacity: 0; visibility: hidden;
+            transform: translateX(-50%) translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .cookie-banner.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .cookie-banner p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-right: auto; }
+        .cookie-banner p a { color: white; font-weight: 500; border-bottom: 1px solid #555; }
+        .cookie-banner p a:hover { color: var(--accent-orange); border-color: var(--accent-orange); }
+        .cookie-buttons { display: flex; gap: 15px; flex-shrink: 0; }
+        .cookie-btn {
+            background: var(--accent-orange); color: white;
+            padding: 10px 25px; border: none; border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600; cursor: pointer;
+            white-space: nowrap; transition: var(--transition);
+        }
+        .cookie-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+        .cookie-btn-secondary {
+            background: var(--glass); color: var(--text-muted);
+            border: 1px solid var(--glass-border);
+        }
+        .cookie-btn-secondary:hover {
+            background: var(--glass-border); color: white; transform: translateY(-1px);
+        }
+
+        /* --- 8. RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .nav-links { display: none; } 
+        }
+        @media (max-width: 900px) {
+            .cookie-banner { flex-direction: column; text-align: center; gap: 25px; }
+            .cookie-banner p { margin-right: 0; }
+            .cookie-buttons { justify-content: center; width: 100%; flex-wrap: wrap; }
+        }
+        @media (max-width: 768px) {
+            .footer-main { 
+                grid-template-columns: 1fr; 
+                text-align: center; 
+                gap: 50px;
+            }
+            .footer-contact, .footer-socials { text-align: center; }
+            .social-icons { justify-content: center; }
+            .footer-bottom { flex-direction: column-reverse; gap: 30px; margin-top: 50px; }
+            .footer-links { justify-content: center; gap: 20px; }
+            .form-header h1 { font-size: 2.5rem; }
+            .form-wrapper { padding: 30px; }
+        }
+        @media (max-width: 480px) {
+            nav { padding: 0 4%; }
+            .nav-actions { gap: 10px; }
+            .btn-talk, .btn-login { padding: 8px 14px; font-size: 0.8rem; }
+            .form-wrapper { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-light"></div>
+
+    <!-- HEADER -->
+    <nav>
+        <a href="/" class="nav-logo">
+            <img src="../logo.png" alt="RSL Media Hub Logo">
+        </a>
+        
+        <div class="nav-links">
+            <a href="/#services">Services</a>
+            <a href="/case-studies/">Work</a>
+            <a href="/blogs/">Blogs</a>
+        </div>
+        
+        <div class="nav-actions">
+            <a href="https://app.connectrsl.com/" target="_blank" class="btn-login">Login</a>
+            <a href="/#contact" class="btn-talk">Start a Project</a>
+        </div>
+    </nav>
+
+    <!-- PAGE CONTENT -->
+    <main class="form-page-container">
+        
+        <div class="form-header">
+            <h1>Get in Touch</h1>
+            <p>Fill out the form below and our team will get back to you shortly.</p>
+        </div>
+
+        <div class="form-wrapper">
+            
+            <form id="lead-form">
+
+                <!-- HONEYPOT (ANTI-SPAM) FIELD -->
+                <div class="form-group honeypot-field">
+                    <label for="honeypot">Leave this field blank</label>
+                    <input type="text" id="honeypot" name="honeypot">
+                </div>
+                <!-- END HONEYPOT -->
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company_name">Business Name (Optional)</label>
+                    <!-- UPDATED: Removed 'required' attribute -->
+                    <input type="text" id="company_name" name="company_name" placeholder="Acme Inc.">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone-intl">Phone Number</label>
+                    <!-- 
+                      UPDATED: 
+                      - Advanced phone validation is now handled by the JS library.
+                      - Placeholder is set to guide users.
+                    -->
+                    <input type="tel" id="phone-intl" name="phone-intl" placeholder="+1 (123) 456-7890" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notes">How can we help? (Optional)</label>
+                    <textarea id="notes" name="notes" placeholder="Tell us a bit about your project..."></textarea>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="opt_in" name="opt_in" value="true" required>
+                    <!-- UPDATED: More compliant opt-in with both links -->
+                    <label for="opt_in">
+                        By checking this box, you consent to receive marketing communications and agree to our <a href="/terms-conditions.html" target="_blank">Terms & Conditions</a> and <a href="/privacy-policy.html" target="_blank">Privacy Policy</a>.
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <!-- UPDATED: Button text changed to "Submit" -->
+                    <button type="submit" id="submit-button" class="btn-submit">
+                        Submit
+                    </button>
+                </div>
+
+                <!-- This div will show success/error messages -->
+                <div id="form-message"></div>
+
+            </form>
+        </div>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-contact reveal">
+                <h4>Write to us</h4>
+                <a href="mailto:hello@rslmediahub.com">hello@rslmediahub.com</a>
+                
+                <!-- 
+                  REMOVED ADDRESS BLOCK
+                -->
+
+            </div>
+            
+            <div class="footer-socials reveal">
+                <h4>Follow us</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/rahul.lalia/" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="#888"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@rahul_lalia" target="_blank" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rahullalia/" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                <span>© 2025 RSL Media Hub</span>
+            </div>
+            <div class="footer-links">
+                <!-- FIXED: Pointing to .html file -->
+                <a href="/privacy-policy.html">Privacy Policy</a>
+                <a href="/terms-conditions.html">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- COOKIE BANNER -->
+    <div class="cookie-banner" id="cookieBanner">
+        <!-- FIXED: Pointing to .html files -->
+        <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="/terms-conditions.html">Terms</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-secondary" id="rejectCookie">Reject</button>
+            <button class="cookie-btn cookie-btn-secondary" id="necessaryCookie">Only Necessary</button>
+            <button class="cookie-btn" id="acceptCookie">Accept</button>
+        </div>
+    </div>
+
+    <!-- NEW: JS for the International Phone Input Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js"></script>
+
+    <!-- FORM SUBMISSION SCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const leadForm = document.getElementById('lead-form');
+            const submitButton = document.getElementById('submit-button');
+            const formMessage = document.getElementById('form-message');
+            
+            // --- NEW: Phone Input Initialization ---
+            const phoneInput = document.querySelector("#phone-intl");
+            // Initialize the library
+            const iti = window.intlTelInput(phoneInput, {
+                utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/utils.js", // Required for validation
+                initialCountry: "auto", // Automatically detect user's country
+                geoIpLookup: callback => {
+                    fetch("https://ipapi.co/json")
+                        .then(res => res.json())
+                        .then(data => callback(data.country_code))
+                        .catch(() => callback("us"));
+                },
+                nationalMode: false, // This ensures the country code is included
+            });
+            // --- END: Phone Input Initialization ---
+            
+            // This is your GHL Webhook URL
+            const webhookUrl = 'https://services.leadconnectorhq.com/hooks/LcZc1omMqp9hMj30hWNl/webhook-trigger/0fc84c34-c582-4d03-af61-64dc40f15bc3';
+
+            leadForm.addEventListener('submit', async (event) => {
+                event.preventDefault(); // Stop the form from submitting normally
+                
+                // Disable button and show loading text
+                submitButton.disabled = true;
+                submitButton.textContent = 'Submitting...';
+                formMessage.className = '';
+                formMessage.textContent = '';
+                
+                // --- NEW: Phone Validation Check ---
+                // We check if the field has a value AND if it's invalid
+                if (phoneInput.value.trim() && !iti.isValidNumber()) {
+                    formMessage.className = 'error';
+                    formMessage.textContent = 'Please enter a valid phone number.';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit';
+                    
+                    // Highlight the invalid phone field
+                    phoneInput.style.borderColor = '#ff6b6b';
+                    return; // Stop the submission
+                } else {
+                    // Clear any previous error styling
+                    phoneInput.style.borderColor = 'var(--glass-border)';
+                }
+                // --- END: Phone Validation Check ---
+
+
+                // Get form data
+                const formData = new FormData(leadForm);
+                
+                // Anti-spam honeypot check
+                if (formData.get('honeypot')) {
+                    // It's a bot. Fail silently.
+                    console.log('Bot detected');
+                    return; 
+                }
+                
+                // Convert FormData to a plain object for the webhook
+                const data = Object.fromEntries(formData.entries());
+                
+                // --- NEW: Get the full international number ---
+                // Only get the number if the user actually typed one in
+                if (phoneInput.value.trim()) {
+                    data.phone = iti.getNumber(); // This gets the full, formatted number (e.g., +11234567890)
+                } else {
+                    data.phone = ""; // Send an empty string if not filled
+                }
+                delete data['phone-intl']; // Remove the old, unformatted phone field
+                
+                // Remove the honeypot field before sending
+                delete data.honeypot; 
+
+                try {
+                    const response = await fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    if (response.ok) {
+                        // Success!
+                        formMessage.className = 'success';
+                        formMessage.textContent = 'We have received your message and will be in touch shortly.';
+                        leadForm.reset(); // Clear the form
+                        iti.setCountry("us"); // Reset phone field to default
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Submit';
+                    } else {
+                        // Server returned an error
+                        throw new Error('Server responded with an error.');
+                    }
+                } catch (error) {
+                    // Network error or fetch failed
+                    console.error('Form submission error:', error);
+                    formMessage.className = 'error';
+                    formMessage.textContent = 'An error occurred. Please try again later.';
+                    submitButton.disabled = false;
+                    submitButton.textContent = 'Submit';
+                }
+            });
+
+            // Cookie Banner Logic
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookie');
+            const necessaryBtn = document.getElementById('necessaryCookie');
+            const rejectBtn = document.getElementById('rejectCookie'); // This was missing in the original file
+
+            if (!localStorage.getItem('cookieConsent')) {
+                setTimeout(() => { cookieBanner.classList.add('show'); }, 1000);
+            }
+
+            function hideBanner(status) {
+                localStorage.setItem('cookieConsent', status);
+                cookieBanner.classList.remove('show');
+                setTimeout(() => { cookieBanner.style.display = 'none'; }, 500);
+            }
+
+            if(acceptBtn) acceptBtn.addEventListener('click', () => hideBanner('accepted'));
+            if(rejectBtn) rejectBtn.addEventListener('click', () => hideBanner('rejected'));
+            if(necessaryBtn) necessaryBtn.addEventListener('click', () => hideBanner('necessary'));
+        });
+    </script>
+</body>
+</html>

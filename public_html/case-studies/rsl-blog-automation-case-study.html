@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="RSL Media Hub built an internal AI automation system using Make.com and ChatGPT to generate high-quality blog content, saving the company $18,000 annually in copywriting costs.">
+    <title>Blog Automation Case Study | RSL Media Hub</title>
+    
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJF8J7Z3M4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-YJF8J7Z3M4');
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "RSL Media Hub",
+      "image": "https://www.rslmediahub.com/logo.png",
+      "@id": "https://www.rslmediahub.com/",
+      "url": "https://www.rslmediahub.com/",
+      "telephone": "+15162006599",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "sameAs": [
+        "https://www.instagram.com/rahul.lalia/",
+        "https://www.tiktok.com/@rahul_lalia",
+        "https://www.linkedin.com/in/rahullalia/"
+      ] 
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.rslmediahub.com/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Case Studies",
+        "item": "https://www.rslmediahub.com/case-studies/"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Blog Automation",
+        "item": "https://www.rslmediahub.com/case-studies/blog-automation.html"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.rslmediahub.com/case-studies/blog-automation.html"
+      },
+      "headline": "Blog Automation Case Study: How RSL Media Hub Saved $18K a Year with Make.com and ChatGPT",
+      "description": "RSL Media Hub built an internal AI automation system using Make.com and ChatGPT to generate high-quality blog content, saving the company $18,000 annually in copywriting costs.",
+      "image": "https://www.rslmediahub.com/logo.png",
+      "author": {
+        "@type": "Person",
+        "name": "Rahul Lalia",
+        "url": "https://www.rslmediahub.com/"
+      }, 
+      "publisher": {
+        "@type": "Organization",
+        "name": "RSL Media Hub",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.rslmediahub.com/logo.png"
+        }
+      },
+      "datePublished": "2025-11-13", 
+      "dateModified": "2025-11-13"
+    }
+    </script>
+    <style>
+        /* --- 1. CORE VARIABLES & RESET --- */
+        :root {
+            --bg-dark: #050505;
+            --text-main: #ffffff;
+            --text-muted: #a1a1a1;
+            --accent-orange: #ff4d28;
+            --accent-hover: #ff7a5c;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --card-radius: 20px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 700; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+
+        /* --- 2. AMBIENT BACKGROUND (Animated Gradient Concept) --- */
+        @keyframes gradient-move {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .ambient-light {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            
+            background: linear-gradient(135deg, rgba(255, 77, 40, 0.15), rgba(5, 5, 5, 1) 50%, rgba(255, 77, 40, 0.05));
+            background-size: 400% 400%; 
+            animation: gradient-move 20s ease infinite; 
+        }
+        
+        /* --- 3. NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 90px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 5%; z-index: 100;
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .nav-logo { display: flex; align-items: center; height: 100%; }
+        .nav-logo img { height: 50px; width: auto; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { 
+            font-size: 0.9rem; font-weight: 500; letter-spacing: 0.5px;
+            color: var(--text-muted); position: relative; text-transform: uppercase;
+        }
+        .nav-links a:hover { color: var(--text-main); }
+        .nav-actions { display: flex; align-items: center; gap: 16px; }
+        .btn-talk { 
+            padding: 10px 24px; border: 1px solid var(--glass-border);
+            border-radius: 6px; background: var(--glass);
+            font-size: 0.9rem; font-weight: 600; white-space: nowrap;
+        }
+        .btn-talk:hover { background: var(--text-main); color: var(--bg-dark); }
+        .btn-login {
+            padding: 10px 20px; font-size: 0.9rem; font-weight: 500;
+            color: var(--text-muted); border: 1px solid transparent;
+            border-radius: 6px; transition: var(--transition);
+        }
+        .btn-login:hover {
+            color: var(--text-main); background: rgba(255,255,255,0.05);
+            border-color: var(--glass-border);
+        }
+
+        /* --- 4. NEW 2-COLUMN LAYOUT & STICKY SIDEBAR --- */
+        .case-study-header {
+            padding-top: 140px; padding-bottom: 40px; text-align: center;
+            max-width: 900px; margin: 0 auto; padding-left: 5%; padding-right: 5%;
+        }
+        .tag { 
+            font-size: 0.8rem; color: var(--accent-orange); 
+            text-transform: uppercase; letter-spacing: 1.5px; 
+            margin-bottom: 15px; display: block; font-weight: 700;
+        }
+        .case-study-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2;
+            color: white; margin-bottom: 20px;
+        }
+        .case-study-header p {
+            font-size: 1.1rem; color: var(--text-muted);
+            max-width: 700px; margin: 0 auto;
+        }
+        
+        /* NEW: Share Section Styles */
+        .share-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 40px auto 20px; 
+            max-width: 900px;
+            padding: 25px 5%;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .share-section p {
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        .share-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            cursor: pointer;
+            position: relative; 
+        }
+        .share-button:hover {
+            color: var(--accent-orange);
+            border-color: var(--accent-orange);
+            background: rgba(255, 77, 40, 0.1);
+        }
+        .share-button svg {
+            fill: currentColor; 
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* Tooltip Hover Effect */
+        .share-button::after {
+            content: attr(title); 
+            position: absolute;
+            top: -35px; 
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px 10px;
+            background: var(--text-main); 
+            color: var(--bg-dark); 
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            pointer-events: none; 
+            z-index: 10;
+        }
+
+        .share-button:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+        /* End Tooltip Styling */
+
+        .layout-grid {
+            display: grid; grid-template-columns: 1fr 2.5fr;
+            gap: 60px; max-width: 1200px; margin: 0 auto;
+            padding: 40px 5% 100px;
+        }
+        .sidebar {
+            position: sticky; top: 120px; height: fit-content; padding-right: 20px;
+        }
+        .stats-bar {
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: var(--card-radius); padding: 30px; margin-bottom: 40px;
+        }
+        .stats-bar h3 {
+            font-size: 1.1rem; color: var(--text-main); margin-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;
+            text-transform: uppercase; letter-spacing: 1px;
+        }
+        .stat-item { margin-bottom: 25px; }
+        .stat-item h2 {
+            font-size: 2.2rem; color: var(--accent-orange); margin-bottom: 0px;
+            line-height: 1.1;
+        }
+        .stat-item p {
+            font-size: 0.9rem; color: var(--text-muted); margin: 0;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .sidebar-nav {
+            background: transparent; border: 1px solid var(--glass-border);
+            border-radius: var(--card-radius); padding: 20px; text-align: center;
+        }
+        .nav-link-box {
+            display: block; margin: 15px 0; padding: 10px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-link-box:last-child { border-bottom: none; }
+        .nav-link-box small {
+            display: block; color: var(--text-muted); text-transform: uppercase;
+            font-size: 0.75rem; margin-bottom: 5px;
+        }
+        .nav-link-box h4 { font-size: 1rem; color: var(--text-main); }
+        .nav-link-box:hover h4 { color: var(--accent-orange); }
+        
+        .case-study-content {
+            color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;
+        }
+        .case-study-content p { margin-bottom: 25px; }
+        .case-study-content h2 {
+            font-size: 2.5rem; color: var(--text-main); margin-top: 50px;
+            margin-bottom: 20px; line-height: 1.2;
+            border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;
+        }
+        .case-study-content h3 {
+            font-size: 1.8rem; color: var(--text-main); margin-top: 40px;
+            margin-bottom: 15px;
+        }
+        .case-study-content ul {
+            list-style: none; padding-left: 0; margin-bottom: 25px;
+        }
+        .case-study-content li {
+            position: relative; padding-left: 30px; margin-bottom: 15px;
+        }
+        .case-study-content li::before {
+            content: '✓'; color: var(--accent-orange); position: absolute;
+            left: 0; top: 0; font-size: 1.2rem; font-family: Arial, sans-serif;
+        }
+        .case-study-content blockquote {
+            border-left: 4px solid var(--glass-border); padding-left: 25px;
+            margin: 40px 0; font-size: 1.2rem; font-style: italic;
+            color: var(--text-main); background: var(--glass);
+            padding: 20px; border-radius: 0 var(--card-radius) var(--card-radius) 0;
+        }
+        .case-study-content a {
+            color: var(--accent-orange); border-bottom: 1px solid var(--glass-border);
+        }
+        .case-study-content a:hover {
+            color: var(--accent-hover); border-color: var(--accent-hover);
+        }
+        .case-study-content img {
+            border-radius: var(--card-radius); margin: 40px 0; width: 100%;
+        }
+        .case-study-content .caption {
+            text-align: center; 
+            font-style: italic; 
+            font-size: 0.9rem; 
+            color: #555; 
+            margin-top: -30px; 
+            margin-bottom: 40px;
+        }
+
+
+        /* --- UI/UX Elements (Metrics & Proof) --- */
+        .proof-box {
+            background: #0d0d0d; border: 1px solid var(--glass-border);
+            border-radius: var(--card-radius); padding: 30px; margin: 40px 0;
+        }
+        .proof-box h3 {
+            font-size: 1.5rem; color: var(--accent-orange); margin-top: 0;
+        }
+        .proof-box p {
+            font-size: 1rem; color: var(--text-muted); margin-bottom: 15px;
+        }
+        .key-takeaway-box {
+            background: var(--glass);
+            border: 1px solid var(--accent-orange); 
+            border-radius: var(--card-radius);
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .key-takeaway-box h3 {
+            color: var(--accent-orange);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .key-takeaway-box p {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .key-takeaway-box .btn-cta { 
+            background: var(--text-main);
+            color: var(--bg-dark) !important;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        .key-takeaway-box .btn-cta:hover {
+            background: var(--text-muted);
+        }
+
+
+        .cta-section {
+            background: var(--glass); border: 1px solid var(--glass-border);
+            border-radius: var(--card-radius); padding: 50px; text-align: center;
+            margin-top: 60px;
+        }
+        .cta-section h2 {
+            font-size: 2rem; color: var(--text-main); margin-bottom: 15px;
+        }
+        .cta-section p {
+            color: var(--text-muted); font-size: 1.1rem; max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        .btn-cta {
+            display: inline-block; background: var(--accent-orange);
+            color: white !important; padding: 14px 35px;
+            border-radius: 50px; font-size: 1rem; font-weight: 600;
+            box-shadow: 0 0 20px rgba(255, 77, 40, 0.4);
+            transition: var(--transition);
+        }
+        .btn-cta:hover {
+            background: var(--accent-hover); color: white;
+            transform: translateY(-2px); box-shadow: 0 0 30px rgba(255, 77, 40, 0.6);
+        }
+
+        /* --- 5. FOOTER & 6. COOKIE BANNER (Responsive is also unchanged) --- */
+        footer {
+            border-top: 1px solid var(--glass-border); padding: 80px 5% 40px; 
+            background: #020202;
+        }
+        .footer-main {
+            display: grid; grid-template-columns: 1fr 1fr;
+            align-items: flex-start; gap: 40px; max-width: 1200px; margin: 0 auto;
+        }
+        .footer-contact { text-align: left; }
+        .footer-contact h4 {
+            color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;
+        }
+        .footer-contact a { font-size: 1.1rem; color: white; border-bottom: 1px solid #333; }
+        .footer-contact a:hover { color: var(--accent-orange); border-color: var(--accent-orange); }
+        .footer-socials { text-align: right; }
+        .footer-socials h4 {
+            color: var(--text-muted); font-size: 0.9rem; font-weight: 500;
+            text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;
+        }
+        .social-icons { display: flex; gap: 15px; justify-content: flex-end; }
+        .social-icons a {
+            width: 40px; height: 40px; border: 1px solid var(--glass-border);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: var(--transition);
+        }
+        .social-icons a svg { fill: #888; width: 18px; transition: 0.3s; }
+        .social-icons a:hover { border-color: white; }
+        .social-icons a:hover svg { fill: white; }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 20px; margin-top: 80px; padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.05); max-width: 1200px;
+            margin-left: auto; margin-right: auto; font-size: 0.85rem; color: #555;
+        }
+        .footer-links { display: flex; gap: 25px; }
+        .footer-links a { color: #555; }
+        .footer-links a:hover { color: var(--text-main); }
+        .cookie-banner {
+            position: fixed; bottom: 25px; left: 50%; width: 90%; max-width: 1100px;
+            background: #1a1a1a; border: 1px solid var(--glass-border);
+            border-radius: 16px; padding: 25px 30px;
+            display: flex; align-items: center; justify-content: space-between; gap: 20px;
+            z-index: 9999; opacity: 0; visibility: hidden;
+            transform: translateX(-50%) translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .cookie-banner.show { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+        .cookie-banner p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-right: auto; }
+        .cookie-banner p a { color: white; font-weight: 500; border-bottom: 1px solid #555; }
+        .cookie-banner p a:hover { color: var(--accent-orange); border-color: var(--accent-orange); }
+        .cookie-buttons { display: flex; gap: 15px; flex-shrink: 0; }
+        .cookie-btn {
+            background: var(--accent-orange); color: white;
+            padding: 10px 25px; border: none; border-radius: 50px;
+            font-size: 0.9rem; font-weight: 600; cursor: pointer;
+            white-space: nowrap; transition: var(--transition);
+        }
+        .cookie-btn:hover { background: #ff7a5c; transform: translateY(-1px); }
+        .cookie-btn-secondary {
+            background: var(--glass); color: var(--text-muted);
+            border: 1px solid var(--glass-border);
+        }
+        .cookie-btn-secondary:hover {
+            background: var(--glass-border); color: white; transform: translateY(-1px);
+        }
+        
+        @media (max-width: 1024px) {
+            .nav-links { display: none; } 
+            .layout-grid { grid-template-columns: 1fr; gap: 40px; }
+            .sidebar { position: static; top: auto; padding-right: 0; }
+            .sidebar-nav { display: none; }
+        }
+        @media (max-width: 768px) {
+            .footer-main { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+            .footer-contact, .footer-socials { text-align: center; }
+            .social-icons { justify-content: center; }
+            .footer-bottom { flex-direction: column-reverse; gap: 30px; margin-top: 50px; }
+            .footer-links { justify-content: center; gap: 20px; }
+            .case-study-header h1 { font-size: 2.5rem; }
+            .share-section { flex-direction: column; }
+        }
+        @media (max-width: 480px) {
+            nav { padding: 0 4%; }
+            .nav-actions { gap: 8px; }
+            .btn-talk, .btn-login { padding: 8px 12px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-light"></div>
+
+    <nav>
+        <a href="/" class="nav-logo">
+            <img src="../logo.png" alt="RSL Media Hub Logo">
+        </a>
+        <div class="nav-links">
+            <a href="/#services">Services</a>
+            <a href="/case-studies/">Work</a>
+            <a href="/blogs/">Blogs</a>
+        </div>
+        <div class="nav-actions">
+            <a href="https://app.connectrsl.com/" target="_blank" class="btn-login">Login</a>
+            <a href="https://rslmediahub.com/#contact" class="btn-talk">Start a Project</a>
+        </div>
+    </nav>
+
+    <header class="case-study-header reveal">
+        <span class="tag">AI Automation & Content Strategy</span>
+        <h1>Blog Automation Case Study: How RSL Media Hub <strong>Saved $18K a Year</strong> with Make.com and ChatGPT</h1>
+        <p>Facing high copywriting costs, RSL Media Hub built an internal automation system to consistently publish high-quality, SEO-optimized blog content, saving $18,000 annually.</p>
+    </header>
+
+    <div class="share-section reveal">
+        <p>Share This Case Study</p>
+        <div class="share-buttons">
+            <a href="#" 
+               target="_blank" 
+               class="share-button" 
+               aria-label="Share on LinkedIn"
+               title="Share on LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            
+            <a href="#" 
+               target="_blank" 
+               class="share-button" 
+               aria-label="Share on X (Twitter)"
+               title="Share on X (Twitter)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c1.7 1.1 3.8 1.8 6 1.8A21.15 21.15 0 0 0 22 4.3c-.7 1.2-1.6 2.1-2.7 2.9z"/></svg>
+            </a>
+            
+            <button class="share-button" 
+                    id="copyLink" 
+                    aria-label="Copy Link to Clipboard" 
+                    onclick="copyCaseStudyLink()"
+                    title="Copy Link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="layout-grid">
+        
+        <aside class="sidebar reveal">
+            
+            <div class="stats-bar">
+                <h3>Key Results</h3>
+                
+                <div class="stat-item">
+                    <h2>$18,000</h2>
+                    <p>Annual Cost Saved</p>
+                </div>
+                
+                <div class="stat-item">
+                    <h2>4X</h2>
+                    <p>Posts per Month Achieved</p>
+                </div>
+                
+                <div class="stat-item">
+                    <h2>99%</h2>
+                    <p>Manual Work Eliminated</p>
+                </div>
+
+            </div>
+
+            <div class="sidebar-nav">
+                <a href="https://rslmediahub.com/case-studies/" class="nav-link-box">
+                    <small>← All Case Studies</small>
+                    <h4>Back to Index</h4>
+                </a>
+                
+                <a href="https://rslmediahub.com/inquiry-form/" class="nav-link-box">
+                    <small>Next: Your Project →</small>
+                    <h4>Start a Discussion</h4>
+                </a>
+            </div>
+
+        </aside>
+
+        <main class="case-study-content reveal">
+            
+            <h2>The Challenge: The High Cost of Content Consistency</h2>
+            <p>At RSL Media Hub, maintaining a steady stream of blog content is essential for demonstrating our expertise in automation, SEO, and digital strategy. However, relying on traditional methods quickly became inefficient and expensive. At an average cost of $75 per article, publishing just four posts a month totaled <strong>$300 per month</strong>, or <strong>$3,600 annually</strong> in raw copywriting fees.</p>
+            <p>The total cost, including internal coordination and editing time, was estimated to approach <strong>$18,000 a year</strong>—a massive expenditure for any growing business. Beyond cost, the system lacked two key factors: <strong>Time</strong> (manual editing and publishing slowed the pipeline) and <strong>Consistency</strong> (maintaining a reliable weekly schedule was a constant struggle).</p>
+
+            <div class="key-takeaway-box">
+                <h3>Key Takeaway from Challenge</h3>
+                <p>The core problem was the <strong>scaling bottleneck of human labor in a low-margin content production process</strong>, confirming the need for an efficient, repeatable system to maintain authority.</p>
+                <a href="https://rslmediahub.com/#contact" class="btn-cta">Apply This Insight to Your Business</a>
+            </div>
+
+            <h2>The RSL Solution: Building the AI Content Engine</h2>
+            <p>We solved this problem internally by designing an autonomous blog creation pipeline using no-code tools. This exact system is now available to clients looking to save on content costs while boosting consistency.</p>
+            
+            <h3>Phase 1: Workflow Foundation & AI Integration</h3>
+            <ul>
+                <li>We established a front-end form (Typeform) to capture blog topics, primary/secondary keywords, and internal/external links.</li>
+                <li>The data feeds into a central record (Google Sheets) for tracking.</li>
+                <li>The core action uses a custom prompt to instruct <strong>ChatGPT</strong> to generate SEO-optimized outlines and full posts.</li>
+            </ul>
+
+            <img src="[REPLACE: IMAGE 1 URL - SYSTEM ARCHITECTURE/DATA FLOW]" alt="Diagram showing the flow from Typeform input to Make.com orchestration and final WordPress publish.">
+            <p class="caption">Figure 1: The architecture of the Make.com scenario orchestrating content creation via ChatGPT and WordPress.</p>
+
+            <h3>Phase 2: Automation & Publishing</h3>
+            <p>The entire system is orchestrated by <strong>Make.com</strong>. Once a topic is entered into the initial Typeform, the workflow takes over. The generated content is automatically organized and saved in Google Drive, and the final post is published directly to <strong>WordPress</strong>, completely eliminating manual copying, pasting, and scheduling.</p>
+
+            <img src="[REPLACE: IMAGE 2 URL - WORKFLOW SNIPPET/SCREENSHOT]" alt="Screenshot of the Make.com visual interface showing the sequence of integrated modules.">
+            <p class="caption">Figure 2: Snippet of the Make.com workflow showing modules for data capture, ChatGPT, and WordPress integration.</p>
+
+
+            <h2>The Results: $18,000 in Annual Savings</h2>
+            
+            <div class="proof-box">
+                <h3>Internal Takeaway</h3>
+                <p>— "What used to cost the same as a part-time employee now runs for less than the cost of a single outsourced blog post. This system proved our commitment to efficiency and automation."</p>
+            </div>
+
+            <p>The implemented automation system delivered an immediate and dramatic impact on both cost and content velocity, solidifying RSL Media Hub's market authority.</p>
+            
+            <ul>
+                <li>Achieved <strong>$18,000 in annual savings</strong> compared to the estimated fully-burdened cost of manual copywriting.</li>
+                <li>Enabled <strong>consistent, high-quality blog publishing every week</strong> without taxing internal team resources.</li>
+                <li>Eliminated <strong>hours of manual work</strong>, replacing data entry, writing, and formatting with a few simple clicks.</li>
+            </ul>
+
+            <div class="cta-section" id="contact">
+                <h2>Ready for Your Results?</h2>
+                <p>If you want consistent blog content or other repetitive tasks automated without burning through thousands in labor costs, let’s set up your custom AI automation system.</p>
+                <a href="https://rslmediahub.com/#contact" class="btn-cta">Book Your Strategy Call</a>
+            </div>
+            
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-main">
+            <div class="footer-contact reveal">
+                <h4>Write to us</h4>
+                <a href="mailto:hello@rslmediahub.com">hello@rslmediahub.com</a>
+            </div>
+            
+            <div class="footer-socials reveal">
+                <h4>Follow us</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/rahul.lalia/" target="_blank" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="#888"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="https://www.tiktok.com/@rahul.lalia" target="_blank" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rahullalia/" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copyright">
+                <span>© 2025 RSL Media Hub</span>
+            </div>
+            <div class="footer-links">
+                <a href="/privacy-policy.html">Privacy Policy</a>
+                <a href="/terms-conditions.html">Terms & Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <p>We use cookies to enhance your experience. By continuing, you agree to our <a href="/terms-conditions.html">Terms</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn cookie-btn-secondary" id="rejectCookie">Reject</button>
+            <button class="cookie-btn cookie-btn-secondary" id="necessaryCookie">Only Necessary</button>
+            <button class="cookie-btn" id="acceptCookie">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        // FUNCTION TO DYNAMICALLY UPDATE SHARE LINKS WITH CURRENT URL
+        function updateShareLinks() {
+            const pageUrl = encodeURIComponent(window.location.href);
+            const caseStudyTitle = encodeURIComponent("Blog Automation Case Study: How RSL Media Hub Saved $18K a Year with Make.com and ChatGPT");
+            const tweetText = encodeURIComponent("We used Make.com and ChatGPT to automate our blog creation, saving $18,000 a year! See how RSL Media Hub did it: ");
+            
+            // 1. LinkedIn Share Link
+            const linkedInLink = document.querySelector('a[aria-label="Share on LinkedIn"]');
+            if (linkedInLink) {
+                linkedInLink.href = `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}&title=${caseStudyTitle}`;
+            }
+
+            // 2. Twitter/X Share Link
+            const twitterLink = document.querySelector('a[aria-label="Share on X (Twitter)"]');
+            if (twitterLink) {
+                // Combines pre-written text with the page URL
+                twitterLink.href = `https://twitter.com/intent/tweet?text=${tweetText}${pageUrl}`;
+            }
+        }
+
+        // FUNCTION FOR COPY LINK BUTTON
+        function copyCaseStudyLink() {
+            const link = window.location.href;
+            navigator.clipboard.writeText(link).then(() => {
+                const button = document.getElementById('copyLink');
+                // Checkmark Icon for confirmation
+                button.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" style="color: green;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>';
+                setTimeout(() => {
+                    // Restore original icon (Clipboard SVG) after 2 seconds
+                    button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+        
+        // 1. Scroll Reveal Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            updateShareLinks(); // Run the share link update on load
+
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, i) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = 1;
+                            entry.target.style.transform = 'translateY(0)';
+                        }, i * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                revealObserver.observe(el);
+            });
+
+            // 2. Cookie Banner Logic
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookie');
+            const rejectBtn = document.getElementById('rejectCookie');
+            const necessaryBtn = document.getElementById('necessaryCookie');
+
+            if (!localStorage.getItem('cookieConsent')) {
+                setTimeout(() => { cookieBanner.classList.add('show'); }, 1000);
+            }
+
+            function hideBanner(status) {
+                localStorage.setItem('cookieConsent', status);
+                cookieBanner.classList.remove('show');
+                setTimeout(() => { cookieBanner.style.display = 'none'; }, 500);
+            }
+
+            if(acceptBtn) acceptBtn.addEventListener('click', () => hideBanner('accepted'));
+            if(rejectBtn) rejectBtn.addEventListener('click', () => hideBanner('rejected'));
+            if(necessaryBtn) necessaryBtn.addEventListener('click', () => hideBanner('necessary'));
+        });
+    </script>
+</body>
+</html>

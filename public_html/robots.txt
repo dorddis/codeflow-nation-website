@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.rslmediahub.com/sitemap.xml
+
+Disallow: /privacy-policy/
+Disallow: /terms-conditions/
+Disallow: /blogs/blog-template.html
+Disallow: /case-studies/case-study-template.html
+Disallow: /resource/
+Disallow: /inquiry-form/

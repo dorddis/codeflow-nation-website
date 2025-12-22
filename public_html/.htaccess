@@ -1,0 +1,41 @@
+# --- RSL MEDIA HUB SERVER RULES ---
+
+# Enable the rewrite engine
+RewriteEngine On
+RewriteBase /
+
+# 1. Force Trailing Slash on Folders
+# --------------------------------------------------
+# This rule checks if a request is for something that
+# exists as a directory (like /blogs or /case-studies)
+# but doesn't have the trailing slash.
+# It then permanently redirects (301) to the
+# version WITH the slash. This fixes your 404s.
+# --------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !^(.+)/$
+RewriteRule ^(.+)$ https://%{HTTP_HOST}/$1/ [R=301,L]
+
+
+# 2. Custom Error Page Routing
+# --------------------------------------------------
+# Tells the server which HTML file to show when
+# it encounters a specific error.
+# We will create 404.html and 403.html next.
+# --------------------------------------------------
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
+
+# 3. Force WWW and HTTPS (Optional but Recommended)
+# --------------------------------------------------
+# Uncomment these lines if you want all traffic
+# to go to "https://www.rslmediahub.com"
+# --------------------------------------------------
+# RewriteCond %{HTTP_HOST} ^rslmediahub\.com [NC]
+# RewriteRule ^(.*)$ https://www.rslmediahub.com/$1 [L,R=301,NC]
+#
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- END RSL MEDIA HUB SERVER RULES ---

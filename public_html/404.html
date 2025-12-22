@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="robots" content="noindex"> <!-- Tells Google not to index this page -->
+    <meta name="description" content="Error 404: Page Not Found for RSL Media Hub. We can't find the page you're looking for, but we can help you get back to our homepage.">
+    <title>404 - Page Not Found | RSL Media Hub</title>
+    
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <!-- 
+      GOOGLE ANALYTICS
+      --------------------------------------------------
+      Your G-YJF8J7Z3M4 tag is now live.
+    -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YJF8J7Z3M4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-YJF8J7Z3M4');
+    </script>
+    <!-- 
+      END GOOGLE ANALYTICS
+      --------------------------------------------------
+    -->
+
+    <style>
+        /* --- 1. CORE VARIABLES & RESET --- */
+        :root {
+            --bg-dark: #050505;
+            --bg-dark-alt: #080808;
+            --text-main: #ffffff;
+            --text-muted: #a1a1a1;
+            --accent-orange: #ff4d28;
+            --accent-hover: #ff7a5c;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --card-radius: 20px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 700; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        img { max-width: 100%; display: block; }
+
+        /* --- 2. AMBIENT BACKGROUND --- */
+        .ambient-light {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: 
+                radial-gradient(circle at 50% -20%, rgba(255, 77, 40, 0.15), transparent 60%),
+                radial-gradient(circle at 85% 30%, rgba(255, 77, 40, 0.05), transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- 3. ERROR STYLES --- */
+        .error-container {
+            text-align: center;
+            padding: 40px;
+            max-width: 600px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--card-radius);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .error-container h1 {
+            font-size: 8rem;
+            line-height: 1;
+            color: var(--accent-orange);
+            margin-bottom: 20px;
+        }
+        
+        .error-container .error-title {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .error-container p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn-home {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem; 
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(255, 77, 40, 0.4);
+        }
+        .btn-home:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(255, 77, 40, 0.6);
+        }
+
+        /* --- 4. FOOTER LINKS (for bottom text) --- */
+        .bottom-links {
+            position: fixed;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .bottom-links a {
+            color: var(--text-muted);
+            margin: 0 10px;
+            border-bottom: 1px solid transparent;
+        }
+        .bottom-links a:hover {
+            color: var(--text-main);
+            border-color: var(--text-main);
+        }
+
+        /* --- 5. RESPONSIVE --- */
+        @media (max-width: 600px) {
+            .error-container {
+                padding: 30px;
+                margin: 20px;
+            }
+            .error-container h1 {
+                font-size: 6rem;
+            }
+            .error-container .error-title {
+                font-size: 1.5rem;
+            }
+            .error-container p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-light"></div>
+
+    <main class="error-container">
+        <h1>404</h1>
+        <h2 class="error-title">Page Not Found</h2>
+        <p>Sorry, we can't find the page you were looking for. The link may be broken, or the page may have been moved.</p>
+        <a href="/" class="btn-home">Go To Homepage</a>
+    </main>
+
+    <div class="bottom-links">
+        <!-- FIXED: Links now point to .html files -->
+        <a href="/privacy-policy.html">Privacy Policy</a> | 
+        <a href="/terms-conditions.html">Terms & Conditions</a>
+    </div>
+
+</body>
+</html>

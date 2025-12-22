@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Code Flow Nation - Architecting the future of work with AI Automation, CRM Systems, and Workflow Optimization.">
+    <title>Code Flow Nation | AI Automation & Workflow Optimization</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+    <style>
+        /* --- VARIABLES & RESET --- */
+        :root {
+            --bg-color: #050505;
+            --card-bg: #0f0f11;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-cyan: #00f3ff;
+            --accent-purple: #7b2cbf;
+            --gradient-main: linear-gradient(135deg, #00f3ff 0%, #7b2cbf 100%);
+            --nav-height: 80px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 700; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- UTILITIES --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 100px 0; }
+        
+        .gradient-text {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-cyan);
+            color: #000;
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: var(--text-primary);
+        }
+
+        /* Honeypot Captcha */
+        .bot-field { opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed; top: 0; width: 100%; height: var(--nav-height);
+            display: flex; align-items: center; z-index: 1000;
+            background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px;
+        }
+
+        .logo { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 900; color: white; }
+        .logo span { color: var(--accent-cyan); }
+
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { color: var(--text-secondary); transition: var(--transition); font-size: 0.95rem; }
+        .nav-links a:hover { color: var(--text-primary); }
+
+        .burger { display: none; cursor: pointer; }
+        .burger div { width: 25px; height: 2px; background-color: white; margin: 5px; }
+
+        /* --- HERO --- */
+        header {
+            height: 100vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding-top: var(--nav-height);
+            background: radial-gradient(circle at 50% 50%, rgba(123, 44, 191, 0.15), transparent 60%);
+        }
+
+        .hero-content h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; letter-spacing: -2px; }
+        .hero-content p { color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; font-size: 1.2rem; }
+
+        /* --- SECTIONS GENERIC --- */
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 10px; }
+
+        /* --- SERVICES GRID --- */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card {
+            background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px; border-radius: 16px; transition: var(--transition);
+        }
+        .service-card:hover { transform: translateY(-10px); border-color: rgba(0, 243, 255, 0.3); }
+        .icon-box { font-size: 1.5rem; color: var(--accent-cyan); margin-bottom: 20px; }
+
+        /* --- BLOG / INSIGHTS SECTION --- */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /* Extra cards hidden by default */
+        .blog-card.hidden-card {
+            display: none;
+        }
+
+        .blog-card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-5px);
+        }
+
+        .blog-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-tag {
+            font-size: 0.8rem; color: var(--accent-cyan); text-transform: uppercase;
+            letter-spacing: 1px; margin-bottom: 10px; font-weight: 600;
+        }
+        .blog-card h3 { font-size: 1.4rem; margin-bottom: 15px; line-height: 1.3; }
+        .blog-card p { color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px; }
+        .read-more { margin-top: auto; color: white; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; }
+        .read-more:hover { color: var(--accent-cyan); }
+
+        /* --- BOOKING SECTION --- */
+        #booking { background: #020202; }
+        
+        /* FIXED: Totally transparent, no border */
+        .iframe-container {
+            background: transparent; 
+            border: none;
+            overflow: hidden;
+        }
+
+        /* --- CONTACT --- */
+        .contact-wrapper {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+            background: linear-gradient(180deg, rgba(15,15,17,0) 0%, rgba(15,15,17,1) 100%);
+            padding: 60px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 15px; background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--accent-cyan);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute; right: 0; height: 100vh; top: 0;
+                background: #0a0a0a; flex-direction: column; justify-content: center;
+                width: 70%; transform: translateX(100%); transition: 0.3s;
+            }
+            .nav-links.nav-active { transform: translateX(0%); }
+            .burger { display: block; z-index: 1001; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">CodeFlow<span>Nation</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#insights">Insights</a></li>
+                <li><a href="#booking">Book Now</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="container hero-content">
+            <h1>Architecting the <br><span class="gradient-text">Future of Work</span></h1>
+            <p>We fuse human precision with AI power to build self-driving business systems. Automate the mundane, elevate the exceptional.</p>
+            <a href="#booking" class="btn btn-primary">Book a Free Strategy Call</a>
+        </div>
+    </header>
+
+    <section id="services" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Expertise</h2>
+                <p style="color: var(--text-secondary);">Engineered for scale. Built for impact.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon-box">❖</div>
+                    <h3>AI Automation</h3>
+                    <p>Deploy custom AI agents that handle customer support and workflows 24/7.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box">⚡</div>
+                    <h3>Smart Workflows</h3>
+                    <p>Unified ecosystems where data flows automatically between Slack, Airtable, and CRMs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box">◈</div>
+                    <h3>CRM Systems</h3>
+                    <p>Custom-architected CRM solutions that track interactions and predict client needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section-padding" style="background: #080808;">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Flow Protocol</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" style="border-left: 2px solid var(--accent-cyan);">
+                    <h3>01. Audit</h3>
+                    <p>We dissect operations to identify high-leverage opportunities.</p>
+                </div>
+                <div class="service-card" style="border-left: 2px solid var(--accent-purple);">
+                    <h3>02. Build</h3>
+                    <p>We engineer custom scripts, API integrations, and AI agents.</p>
+                </div>
+                <div class="service-card" style="border-left: 2px solid white;">
+                    <h3>03. Deploy</h3>
+                    <p>We launch, monitor, and optimize for maximum throughput.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="insights" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Latest <span class="gradient-text">Insights</span></h2>
+                <p style="color: var(--text-secondary);">Deep dives into AI architecture and System Logic.</p>
+            </div>
+            
+            <div class="blog-grid" id="blog-grid">
+                
+                <a href="https://rslmediahub.notion.site/15-google-business-profile-post-ideas" target="_blank" class="blog-card">
+                    <div class="blog-content">
+                        <span class="blog-tag">Automation</span>
+                        <h3>The Death of Data Entry: How to save 20h/week</h3>
+                        <p>A breakdown of how we implemented LLMs to clean dirty data automatically.</p>
+                        <span class="read-more">Read Article &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="https://rslmediahub.notion.site/15-google-business-profile-post-ideas" target="_blank" class="blog-card">
+                    <div class="blog-content">
+                        <span class="blog-tag">Strategy</span>
+                        <h3>Why your CRM is failing you (and how to fix it)</h3>
+                        <p>Most CRMs are digital filing cabinets. Turn yours into an active engine.</p>
+                        <span class="read-more">Read Article &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="https://rslmediahub.notion.site/15-google-business-profile-post-ideas" target="_blank" class="blog-card">
+                    <div class="blog-content">
+                        <span class="blog-tag">Case Study</span>
+                        <h3>Scaling from $10k to $100k with Automated Outreach</h3>
+                        <p>The exact tech stack we used to scale a client's lead gen system.</p>
+                        <span class="read-more">Read Article &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="blog-card hidden-card">
+                    <div class="blog-content">
+                        <span class="blog-tag">AI Agents</span>
+                        <h3>Building Custom GPTs for Internal Ops</h3>
+                        <p>How to train specific agents on your company knowledge base.</p>
+                        <span class="read-more">Read Article &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="blog-card hidden-card">
+                    <div class="blog-content">
+                        <span class="blog-tag">Integration</span>
+                        <h3>Zapier vs Make.com: The 2025 Comparison</h3>
+                        <p>Which platform handles complex logic better? We tested both.</p>
+                        <span class="read-more">Read Article &rarr;</span>
+                    </div>
+                </a>
+
+                <a href="#" target="_blank" class="blog-card hidden-card">
+                    <div class="blog-content">
+                        <span class="blog-tag">Future</span>
+                        <h3>The Rise of Autonomous Agencies</h3>
+                        <p>What happens when software writes software? The next 5 years.</p>
+                        <span class="read-more">Read Article &rarr;</span>
+                    </div>
+                </a>
+
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <button id="load-more-btn" class="btn btn-secondary">View All Insights</button>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="booking" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Book a <span class="gradient-text">Strategy Call</span></h2>
+                <p style="color: var(--text-secondary);">Select a time on the calendar below.</p>
+            </div>
+            
+            <div class="iframe-container">
+                <iframe src="https://api.leadconnectorhq.com/widget/booking/5RkWAEO5eu4oCNqQMZso" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="5RkWAEO5eu4oCNqQMZso_1762977209098"></iframe><br><script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+            </div>
+            </div>
+    </section>
+
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Ready to <span class="gradient-text">Evolve?</span></h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 30px;">
+                        If you prefer email over a call, drop us a message. We check this inbox daily.
+                    </p>
+                    <ul style="color: var(--text-secondary); line-height: 2;">
+                        <li>✓ Free Workflow Audit</li>
+                        <li>✓ AI Feasibility Check</li>
+                    </ul>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="cfn-form">
+                        <input type="text" name="bot_check" id="bot_check" class="bot-field" autocomplete="off" tabindex="-1">
+                        
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Business Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="How can we help you?" required rows="4"></textarea>
+                        </div>
+                        <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+                    <p id="form-status" style="margin-top:10px; color: var(--accent-cyan); display:none;"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="border-top: 1px solid rgba(255,255,255,0.05); padding: 50px 0; background: #020202;">
+        <div class="container" style="text-align: center;">
+            <div class="logo" style="font-size: 1.2rem; margin-bottom: 10px;">CodeFlow<span>Nation</span></div>
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2025 Code Flow Nation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- MOBILE NAV ---
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
+
+        // --- BLOG LOAD MORE ---
+        const loadMoreBtn = document.getElementById('load-more-btn');
+        const hiddenCards = document.querySelectorAll('.hidden-card');
+
+        loadMoreBtn.addEventListener('click', () => {
+            hiddenCards.forEach(card => {
+                card.style.display = 'flex'; // Reveals the cards
+            });
+            loadMoreBtn.style.display = 'none'; // Hides the button after clicking
+        });
+
+        // --- WEBHOOK FORM HANDLER ---
+        const form = document.getElementById('cfn-form');
+        const statusMsg = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // CAPTCHA CHECK
+            const honeypot = document.getElementById('bot_check').value;
+            if (honeypot) { console.log("Bot detected."); return; }
+
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                source: "Website Contact Form"
+            };
+
+            fetch("https://services.leadconnectorhq.com/hooks/LcZc1omMqp9hMj30hWNl/webhook-trigger/0fc84c34-c582-4d03-af61-64dc40f15bc3", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                statusMsg.innerText = "Message sent! We'll be in touch.";
+                statusMsg.style.display = "block";
+                form.reset();
+                submitBtn.innerText = "Send Message";
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                statusMsg.innerText = "Message sent!"; 
+                statusMsg.style.display = "block";
+                form.reset();
+                submitBtn.innerText = "Send Message";
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>

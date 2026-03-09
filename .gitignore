@@ -1,24 +1,53 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
 
-node_modules
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
 dist
 dist-ssr
-*.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# misc
 .DS_Store
+*.pem
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# local env files
+.env*.local
+*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# claude docs
+claude-docs/
+
+# MCP config (contains tokens)
+.mcp.json

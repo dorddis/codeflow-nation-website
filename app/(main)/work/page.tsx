@@ -3,14 +3,14 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Work | CodeFlow',
   description:
-    'Real automation projects with real results. See how I help companies eliminate manual work with custom AI pipelines.',
+    'Production systems with real results. $150K+ in documented savings across logistics, media, manufacturing, and enterprise research.',
   alternates: {
     canonical: 'https://codeflownation.com/work',
   },
   openGraph: {
     title: 'Work | CodeFlow',
     description:
-      'Real automation projects with real results. See how I help companies eliminate manual work with custom AI pipelines.',
+      'Production systems with real results. $150K+ in documented savings across logistics, media, manufacturing, and enterprise research.',
     url: 'https://codeflownation.com/work',
     siteName: 'CodeFlow',
     type: 'website',
@@ -20,30 +20,30 @@ export const metadata: Metadata = {
 const featured = [
   {
     slug: 'rfq-email-extraction',
-    title: 'AI Email Extraction for Freight Company',
+    title: '2.8-Hour Response Time to Under 10 Minutes',
     client: 'Best Roadways Ltd',
     industry: 'Logistics & Freight',
     summary:
-      'Built an AI pipeline that reads unstructured RFQ emails and extracts structured shipment data — pickup, drop, weight, vehicle type — with 88.5% accuracy. Response time dropped from 2.8 hours to under 10 minutes.',
+      'Built an AI pipeline that reads unstructured RFQ emails and extracts structured shipment data with 88.5% accuracy. 20+ dispatchers stopped manually reading emails. Under-1-hour responses went from 31.5% to 100%.',
     metrics: [
-      { value: '88.5%', label: 'Extraction Accuracy' },
       { value: '28x', label: 'Faster Response' },
-      { value: '104', label: 'Emails Validated' },
-      { value: '99%', label: 'Processing Success' },
+      { value: '88.5%', label: 'Extraction Accuracy' },
+      { value: '$0.01', label: 'Per Email' },
+      { value: '100%', label: 'Under 1hr Response' },
     ],
     problem:
-      'Hundreds of RFQ emails daily in different formats. 20+ dispatchers manually reading and entering data. 2.8-hour median response time losing deals to faster competitors.',
+      'Hundreds of RFQ emails daily in different formats — tables, conversational, mixed. 20+ dispatchers manually reading and entering data. 2.8-hour median response time losing deals to faster competitors. 23.2% of requests took over 24 hours.',
     solution: [
-      'AI reads raw email text and extracts structured fields (Gemini, temp 0.1)',
-      'Confidence scoring on every field — HIGH, MEDIUM, or LOW',
+      'Gemini-based extraction reads raw email text and returns structured fields (pickup, drop, weight, vehicle type)',
+      'Confidence scoring on every field — HIGH, MEDIUM, or LOW — so humans only review what needs it',
+      'Alias table for city name variants across India pushes accuracy to 95%+',
       'Human-in-the-loop review before data enters the quoting workflow',
-      'Alias table for city name variants pushes accuracy to 95%+',
     ],
     results: [
       'Under-1-hour responses went from 31.5% to 100%',
       'Over-24-hour responses went from 23.2% to 0%',
       'Processing cost: ~$0.01 per email',
-      'Handles multi-format emails: tables, conversational, mixed',
+      'Handles all formats: tables, conversational, multi-item, mixed language',
     ],
     quote: {
       text: 'Biggest impact will be the one which has 100s of unstructured inquiries. To give it a uniform structure will save a lot of time.',
@@ -53,28 +53,28 @@ const featured = [
   },
   {
     slug: 'video-qc-automation',
-    title: 'Video Subtitle QC Automation',
+    title: '92% Less Time on Video QC at $0.48 Per Video',
     client: 'CrazyTok Media',
     industry: 'Media & Content',
     summary:
-      'Replaced 60+ minutes of manual subtitle quality checking per video with an AI pipeline that catches spelling errors, timing issues, formatting problems, and brand inconsistencies in under 5 minutes.',
+      'Replaced 60+ minutes of manual subtitle quality checking per video with a multi-layer AI pipeline that catches errors human reviewers consistently miss. 30+ videos per month, zero additional headcount.',
     metrics: [
       { value: '92%', label: 'Time Reduction' },
-      { value: '$0.48', label: 'Cost Per Video' },
+      { value: '$0.48', label: 'Per Video' },
       { value: '50+ hrs', label: 'Saved Monthly' },
       { value: '<5 min', label: 'Per Video QC' },
     ],
     problem:
-      'Content team spending 60+ minutes per video on manual subtitle QC — checking spelling, timing alignment, formatting consistency, and brand voice compliance. At 30+ videos per month, that is an entire person just doing QC.',
+      'Content team spending 60+ minutes per video on manual subtitle QC — spelling, timing alignment, formatting consistency, and brand voice compliance. At 30+ videos per month, that is an entire person doing nothing but QC. Manual reviewers still missed timing drift and subtle typos.',
     solution: [
-      'Multi-layer AI pipeline: scene detection, OCR extraction, and LLM analysis',
-      'PySceneDetect for frame segmentation + Tesseract and Cloud Vision for text extraction',
-      'Gemini validates spelling, grammar, timing, and brand guidelines in one pass',
+      'PySceneDetect for frame segmentation, Tesseract and Cloud Vision for text extraction',
+      'Gemini validates spelling, grammar, timing, and brand guidelines in a single pass',
       'Structured JSON report with frame-level issue citations for editor handoff',
+      'Multi-layer pipeline: scene detection, OCR extraction, LLM analysis',
     ],
     results: [
-      'QC time dropped from 60+ minutes to under 5 minutes per video',
-      'Cost of $0.48/video vs $15-25/hour for manual QC',
+      'QC time: 60+ minutes down to under 5 minutes per video',
+      '$0.48/video vs $15-25/hour for manual QC',
       '50+ hours reclaimed per month for the content team',
       'Catches issues human reviewers consistently miss (timing drift, subtle typos)',
     ],
@@ -82,137 +82,141 @@ const featured = [
   },
   {
     slug: 'enterprise-web-scraping',
-    title: 'Distributed Data Collection at Scale',
-    client: 'MRUC (Media Research)',
+    title: '$136K Saved Replacing an 80-Person Manual Process',
+    client: 'MRUC (National Readership Survey)',
     industry: 'Enterprise Research',
     summary:
-      'Built a distributed AWS scraping system that replaced weeks of manual data collection from thousands of websites. 1M+ records processed with a custom ML model achieving 97% CAPTCHA solve rate.',
+      'An 80-person team spent 4 months manually collecting data from 80+ newspaper websites across 7 languages. Built a distributed AWS system that does it in 2 weeks with 1 person. Custom ML CAPTCHA solver hits 97% accuracy.',
     metrics: [
       { value: '$136K', label: 'Annual Savings' },
-      { value: '1M+', label: 'Records Processed' },
-      { value: '87.5%', label: 'Work Reduction' },
+      { value: '80 to 1', label: 'People Required' },
+      { value: '87.5%', label: 'Time Reduction' },
       { value: '97%', label: 'CAPTCHA Solve Rate' },
     ],
     problem:
-      'Research organization collecting data from thousands of websites manually. Process took weeks, was expensive, and produced inconsistent results with high error rates.',
+      '80-person team — data entry operators, supervisors, managers, QC — working 4 months to collect data from government newspaper websites. Corrupted text in 7 languages, CAPTCHAs blocking automation, and unreliable infrastructure that went down constantly.',
     solution: [
-      'Distributed AWS Lambda architecture for parallel scraping at scale',
-      'Custom ML model trained for CAPTCHA solving (97% accuracy)',
-      'Selenium-based browser automation handling dynamic JS-rendered content',
-      'PostgreSQL pipeline for dedup, validation, and structured storage',
+      'Distributed Selenium Grid with 4 worker nodes and 20 concurrent threads processing 4,000 records/hour',
+      'Custom ML CAPTCHA solver with pre-filters and consensus mechanism across multiple OCR confidence scores',
+      'Multi-language extraction handling corrupted ASPX records across 7 languages',
+      'Fault-tolerant architecture with exponential backoff for unreliable government websites',
     ],
     results: [
-      '$136K annual cost savings vs manual data collection',
-      '87.5% reduction in manual work hours',
-      '1M+ records extracted, cleaned, and structured',
-      'System runs autonomously with minimal oversight',
+      '$136K annual savings — team went from 80 people to 1',
+      '4 months collapsed to 2 weeks (87.5% reduction)',
+      '50x throughput improvement: 4,000 records/hour',
+      'AWS costs under $500/month (60% reduction via spot instances)',
     ],
     tags: ['Web Scraping', 'AWS', 'Machine Learning', 'ETL'],
   },
   {
     slug: 'iot-fleet-tracking',
-    title: 'Real-Time IoT Fleet Tracking',
+    title: 'Whiteboards to 100% Digital Fleet Visibility',
     client: 'Fortune 500 Automotive Manufacturer',
     industry: 'Manufacturing & IoT',
     summary:
-      'Built a real-time integration layer that streams sensor data from factory floor vehicles (forklifts, AGVs) at 10Hz with sub-second dashboard updates. Replaced whiteboard-based tracking with 100% digital fleet visibility.',
+      'Factory floor vehicles tracked on whiteboards. Built a real-time MQTT-to-REST bridge streaming position data at 10Hz with 50-80ms latency and +/-20mm accuracy. Coordinated across 4 organizations. Exceeded every SLA target.',
     metrics: [
-      { value: '10 Hz', label: 'Sensor Streaming' },
-      { value: '<1s', label: 'Dashboard Latency' },
-      { value: '99.7%', label: 'System Uptime' },
-      { value: '100%', label: 'Fleet Visibility' },
+      { value: '50-80ms', label: 'Latency' },
+      { value: '10 Hz', label: 'Update Rate' },
+      { value: '99.7%', label: 'Uptime' },
+      { value: '+/-20mm', label: 'Accuracy' },
     ],
     problem:
-      'Factory floor operations tracked manually with whiteboards. No real-time visibility into vehicle locations, utilization, or downtime. Safety incidents from blind spots.',
+      'Factory floor operations tracked with whiteboards. No real-time visibility into vehicle locations, utilization, or downtime. Safety incidents from blind spots. Integration required coordinating across 4 organizations with different protocols and systems.',
     solution: [
-      'MQTT-based sensor ingestion streaming position data at 10Hz',
-      'WebSocket layer for real-time browser dashboard updates',
-      'React visualization with live fleet map and utilization heatmaps',
-      'Python backend processing sensor fusion and anomaly detection',
+      'MQTT-to-REST protocol bridge integrating autonomous mobile robots with digital twin software',
+      'OAuth 2.0 per-device authentication with token caching for secure communication',
+      'Coordinate transformation system mapping robot coordinates to factory floor coordinates',
+      'Real-time WebSocket layer for live dashboard updates with sub-second latency',
     ],
     results: [
-      'Complete digital twin of factory floor — every vehicle tracked in real-time',
-      'Sub-second latency from sensor event to dashboard update',
-      '99.7% uptime across 3+ months of continuous operation',
-      'Eliminated manual whiteboard tracking entirely',
+      'Exceeded latency target: 50-80ms delivered vs <100ms required',
+      'Exceeded accuracy target: +/-20mm delivered vs +/-50mm required',
+      '99.7% uptime over 3+ months of continuous operation',
+      '100% fleet visibility — whiteboard tracking eliminated entirely',
     ],
-    tags: ['IoT', 'Real-Time', 'MQTT', 'WebSockets', 'Manufacturing'],
+    tags: ['IoT', 'Real-Time', 'MQTT', 'Digital Twin', 'Manufacturing'],
   },
 ];
 
 const more = [
   {
     slug: 'voice-ai-crm',
-    title: 'Voice AI + CRM Automation',
-    client: 'RSL Media Hub',
-    industry: 'Sales Automation',
+    title: '$15K Recovered from Leads Falling Through the Cracks',
+    client: 'White Glove Cleaning',
+    industry: 'Field Services',
     summary:
-      'Automated call logging, CRM updates, and follow-up scheduling. Eliminated 99% of sales admin overhead and recovered $15K in revenue from leads that would have fallen through the cracks.',
+      'Cleaning company with 50+ clients ran on 4 fragmented systems. Consolidated everything into GoHighLevel with Voice AI, 50+ automated workflows, and bidirectional Housecall Pro sync. Two admin positions redeployed to field work.',
     metrics: [
       { value: '$15K', label: 'Revenue Recovered' },
       { value: '99%', label: 'Admin Eliminated' },
-      { value: '14,000+', label: 'Leads Enriched' },
-      { value: 'Real-time', label: 'CRM Sync' },
+      { value: '14 to 132', label: 'Google Reviews' },
+      { value: '50+', label: 'Workflows Built' },
     ],
-    tags: ['Voice AI', 'CRM', 'Sales'],
+    quote: {
+      text: 'We went from needing 2 people just to answer phones and schedule jobs to having everything run automatically. The AI chat even books estimates while I am sleeping.',
+      author: 'Owner, White Glove Cleaning',
+    },
+    tags: ['Voice AI', 'CRM', 'Operations'],
   },
   {
     slug: 'llm-content-pipeline',
-    title: 'Brand Voice Content Pipeline',
+    title: '500-Line Prompts That Actually Sound Like the Brand',
     client: 'CrazyTok Media',
     industry: 'Media & Content',
     summary:
-      'Built a 4-stage LLM pipeline with 500+ line structured prompts that produces content matching specific brand voice. Solved the "LLM outputs sound generic" problem at production scale.',
+      'Generic LLM outputs were killing content quality. Built a 4-stage pipeline with 500+ line structured prompts that produces content matching exact brand voice. Multiple AI models for optimal cost-quality balance.',
     metrics: [
       { value: '4-stage', label: 'Pipeline' },
       { value: '500+', label: 'Line Prompts' },
-      { value: 'Production', label: 'Quality' },
+      { value: '70%', label: 'Workload Reduction' },
       { value: 'Consistent', label: 'Brand Voice' },
     ],
     tags: ['LLM', 'Prompt Engineering', 'Content'],
   },
   {
     slug: 'linkedin-enrichment',
-    title: 'LinkedIn Lead Enrichment at Scale',
+    title: '14,260 Businesses Enriched at $0.001 Per Lead',
     client: 'RSL Media Hub',
     industry: 'Sales & Lead Gen',
     summary:
-      'High-throughput enrichment pipeline processing 14,260 businesses. 100 concurrent browsers, 99.98% completion rate, at less than $0.001 per lead. Turned raw name+company lists into actionable intelligence.',
+      '3-stage enrichment pipeline: 100 concurrent browsers scraping websites, Gemini extracting structured business data, geographic filtering for US/Canada. 99.98% completion rate at enterprise scale.',
     metrics: [
-      { value: '14,260', label: 'Businesses Processed' },
-      { value: '<$0.001', label: 'Cost Per Lead' },
-      { value: '99.98%', label: 'Completion Rate' },
+      { value: '14,260', label: 'Businesses' },
+      { value: '<$0.001', label: 'Per Lead' },
+      { value: '99.98%', label: 'Completion' },
       { value: '100', label: 'Concurrent Browsers' },
     ],
     tags: ['Data Pipeline', 'Lead Gen', 'Web Scraping'],
   },
   {
     slug: 'seo-content-pipeline',
-    title: 'Autonomous SEO Blog Pipeline',
+    title: 'Trigger to Published Blog in 11 Minutes, Zero Humans',
     client: 'Internal — 2 Brands',
-    industry: 'Content & Marketing',
+    industry: 'Content & SEO',
     summary:
-      'End-to-end content automation: keyword research, SERP analysis, competitor gap analysis, article generation, cover images, and CMS publishing. Zero human intervention from trigger to live blog post in 11 minutes.',
+      'Fully autonomous pipeline: keyword research, SERP analysis, competitor gaps, content-type-aware generation, AI cover images, and CMS publishing. 6 content types with type-aware image generation. Runs daily.',
     metrics: [
-      { value: '11 min', label: 'Trigger to Published' },
-      { value: '100%', label: 'Autonomous' },
+      { value: '11 min', label: 'End to End' },
       { value: '~$0.40', label: 'Per Article' },
-      { value: 'Daily', label: 'Publishing Cadence' },
+      { value: '6', label: 'Content Types' },
+      { value: 'Daily', label: 'Cadence' },
     ],
     tags: ['Content Automation', 'SEO', 'GitHub Actions'],
   },
   {
     slug: 'cold-outreach-infra',
-    title: 'Multi-Channel Outreach Infrastructure',
+    title: '1,900 Emails Per Day, 230 Mailboxes, Zero Blacklisting',
     client: 'Internal — FasterQuotes',
     industry: 'Sales Automation',
     summary:
-      'Designed and deployed 230 mailboxes across Outlook and Google with automated domain warming, webhook tracking, and real-time analytics. 1,900 emails per day capacity with zero domain blacklisting.',
+      '230 mailboxes across Outlook and Google with automated domain warming, webhook tracking, and real-time Supabase analytics. Full infrastructure from lead scraping (58,850 leads) through campaign execution.',
     metrics: [
       { value: '1,900', label: 'Emails / Day' },
       { value: '230', label: 'Mailboxes' },
-      { value: '0', label: 'Domains Blacklisted' },
-      { value: 'Real-time', label: 'Event Tracking' },
+      { value: '58,850', label: 'Leads Scraped' },
+      { value: '0', label: 'Blacklisted' },
     ],
     tags: ['Email Infrastructure', 'Webhooks', 'Cold Email'],
   },
@@ -222,13 +226,38 @@ export default function WorkPage() {
   return (
     <main className="max-w-7xl mx-auto py-24 md:py-32 px-[6%] md:px-[5%]">
       {/* Header */}
-      <div className="mb-16 text-center max-w-3xl mx-auto">
+      <div className="mb-10 text-center max-w-3xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-primary mb-5">
           Work
         </h1>
         <p className="text-lg text-steel leading-relaxed">
-          Real projects. Real data. Every system below is running in production or was validated against real-world inputs. No hypotheticals.
+          I build production systems, not slide decks. Every number below is
+          from a real deployment.
         </p>
+      </div>
+
+      {/* Stats Bar */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 max-w-3xl mx-auto text-center">
+        <div>
+          <div className="text-2xl md:text-3xl font-bold text-accent">9</div>
+          <div className="text-sm text-steel mt-1">Production Systems</div>
+        </div>
+        <div>
+          <div className="text-2xl md:text-3xl font-bold text-accent">
+            $150K+
+          </div>
+          <div className="text-sm text-steel mt-1">Documented Savings</div>
+        </div>
+        <div>
+          <div className="text-2xl md:text-3xl font-bold text-accent">5</div>
+          <div className="text-sm text-steel mt-1">Industries</div>
+        </div>
+        <div>
+          <div className="text-2xl md:text-3xl font-bold text-accent">
+            Fortune 500
+          </div>
+          <div className="text-sm text-steel mt-1">to 50-Person Shops</div>
+        </div>
       </div>
 
       {/* Featured Projects */}
@@ -255,8 +284,10 @@ export default function WorkPage() {
                 {project.title}
               </h2>
               <p className="text-steel mb-1">
-                <span className="font-medium text-primary">{project.client}</span>
-                {' '}&middot;{' '}{project.industry}
+                <span className="font-medium text-primary">
+                  {project.client}
+                </span>{' '}
+                &middot; {project.industry}
               </p>
 
               <p className="text-lg text-steel leading-relaxed mt-4 mb-8">
@@ -267,7 +298,9 @@ export default function WorkPage() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 bg-background rounded-xl border border-gray-100">
                 {project.metrics.map((m) => (
                   <div key={m.label} className="text-center">
-                    <div className="text-2xl md:text-3xl font-bold text-accent">{m.value}</div>
+                    <div className="text-2xl md:text-3xl font-bold text-accent">
+                      {m.value}
+                    </div>
                     <div className="text-sm text-steel mt-1">{m.label}</div>
                   </div>
                 ))}
@@ -291,10 +324,23 @@ export default function WorkPage() {
                 </h3>
                 <ul className="space-y-2">
                   {project.solution.map((step, i) => (
-                    <li key={i} className="text-steel text-[0.95rem] leading-relaxed flex gap-2">
+                    <li
+                      key={i}
+                      className="text-steel text-[0.95rem] leading-relaxed flex gap-2"
+                    >
                       <span className="text-accent mt-1 flex-shrink-0">
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 12.75l6 6 9-13.5"
+                          />
                         </svg>
                       </span>
                       <span>{step}</span>
@@ -309,10 +355,23 @@ export default function WorkPage() {
                 </h3>
                 <ul className="space-y-2">
                   {project.results.map((r, i) => (
-                    <li key={i} className="text-steel text-[0.95rem] leading-relaxed flex gap-2">
+                    <li
+                      key={i}
+                      className="text-steel text-[0.95rem] leading-relaxed flex gap-2"
+                    >
                       <span className="text-accent mt-1 flex-shrink-0">
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4.5 12.75l6 6 9-13.5"
+                          />
                         </svg>
                       </span>
                       <span>{r}</span>
@@ -323,7 +382,7 @@ export default function WorkPage() {
             </div>
 
             {/* Quote */}
-            {project.quote && (
+            {'quote' in project && project.quote && (
               <div className="border-t border-gray-200 p-8 bg-accent/5">
                 <blockquote className="text-lg text-primary italic leading-relaxed">
                   &ldquo;{project.quote.text}&rdquo;
@@ -364,18 +423,34 @@ export default function WorkPage() {
                 {project.title}
               </h3>
               <p className="text-sm text-steel mb-3">
-                <span className="font-medium text-primary">{project.client}</span>
-                {' '}&middot;{' '}{project.industry}
+                <span className="font-medium text-primary">
+                  {project.client}
+                </span>{' '}
+                &middot; {project.industry}
               </p>
 
               <p className="text-steel text-[0.95rem] leading-relaxed mb-5 flex-1">
                 {project.summary}
               </p>
 
+              {/* Quote (compact) */}
+              {'quote' in project && project.quote && (
+                <div className="mb-5 pl-3 border-l-2 border-accent/30">
+                  <p className="text-sm text-steel italic leading-relaxed">
+                    &ldquo;{project.quote.text}&rdquo;
+                  </p>
+                  <p className="text-xs text-steel/70 mt-1">
+                    &mdash; {project.quote.author}
+                  </p>
+                </div>
+              )}
+
               <div className="grid grid-cols-2 gap-3 p-4 bg-background rounded-xl border border-gray-100">
                 {project.metrics.map((m) => (
                   <div key={m.label}>
-                    <div className="text-lg font-bold text-accent">{m.value}</div>
+                    <div className="text-lg font-bold text-accent">
+                      {m.value}
+                    </div>
                     <div className="text-xs text-steel">{m.label}</div>
                   </div>
                 ))}
@@ -391,7 +466,8 @@ export default function WorkPage() {
           Have a process that needs automating?
         </h2>
         <p className="text-lg text-steel max-w-xl mx-auto mb-8">
-          I&apos;ll scope out the highest-impact automation for your team in a free 30-minute call.
+          I&apos;ll scope the highest-impact automation for your team in a free
+          30-minute call.
         </p>
         <a
           href="https://api.leadconnectorhq.com/widget/bookings/siddharth-rodrigues-personal-calendar-ihwyx1a3d"

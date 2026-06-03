@@ -35,7 +35,7 @@ export default function BlogPostSkeleton() {
           </div>
 
           {/* Publish Date & Share */}
-          <div className="flex items-center justify-between py-4 border-y border-glass-border mb-12">
+          <div className="flex items-center justify-between py-4 border-y border-card-border mb-12">
             <SkeletonBox width="150px" height="16px" />
             <SkeletonBox width="100px" height="36px" borderRadius="20px" />
           </div>
@@ -94,7 +94,7 @@ export default function BlogPostSkeleton() {
         {/* Sidebar */}
         <aside>
           <div className="sticky top-24">
-            <div className="bg-glass border border-glass-border rounded-[20px] p-6 backdrop-blur-sm">
+            <div className="bg-card border border-card-border rounded-[20px] p-6 backdrop-blur-sm">
               {/* Table of Contents */}
               <SkeletonBox width="150px" height="12px" className="mb-6" />
               <div className="space-y-2">
@@ -107,7 +107,7 @@ export default function BlogPostSkeleton() {
               </div>
 
               {/* Read More Section */}
-              <div className="mt-8 pt-6 border-t border-glass-border">
+              <div className="mt-8 pt-6 border-t border-card-border">
                 <SkeletonBox width="100px" height="12px" className="mb-4" />
                 <div className="space-y-3">
                   {[1, 2].map((i) => (

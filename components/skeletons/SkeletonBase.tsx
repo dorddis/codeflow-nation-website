@@ -2,7 +2,7 @@
  * Skeleton Base Components
  *
  * Reusable skeleton primitives for loading states.
- * Matches FasterQuotes brand aesthetic with shimmer effect.
+ * Matches the CodeFlow brand aesthetic (charcoal/emerald) with shimmer effect.
  */
 
 import React from 'react';
@@ -127,7 +127,7 @@ export function SkeletonCard({
 }) {
   return (
     <div
-      className={`bg-glass border border-glass-border rounded-[20px] p-8 ${className}`}
+      className={`bg-card border border-card-border rounded-[20px] p-8 ${className}`}
     >
       {children}
     </div>

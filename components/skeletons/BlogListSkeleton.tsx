@@ -48,7 +48,7 @@ export default function BlogListSkeleton() {
  */
 function BlogCardSkeleton() {
   return (
-    <div className="bg-glass border border-glass-border rounded-[20px] overflow-hidden">
+    <div className="bg-card border border-card-border rounded-[20px] overflow-hidden">
       {/* Featured Image */}
       <SkeletonImage aspectRatio="16/9" />
 
@@ -72,7 +72,7 @@ function BlogCardSkeleton() {
         </div>
 
         {/* Meta */}
-        <div className="flex items-center gap-3 pt-4 border-t border-glass-border">
+        <div className="flex items-center gap-3 pt-4 border-t border-card-border">
           <SkeletonCircle size="40px" />
           <div className="flex-1">
             <SkeletonBox width="120px" height="16px" className="mb-1" />

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="CodeFlow">
+  <rect width="64" height="64" rx="14" fill="#111827"/>
+  <!-- Stylized flow glyph: a "C" formed by a routed automation path with a node at each end -->
+  <path d="M44 19c-3.4-3.2-8-5-13-5-11 0-19 8-19 18s8 18 19 18c5 0 9.6-1.8 13-5"
+        fill="none" stroke="#059669" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="44" cy="19" r="5" fill="#059669"/>
+  <circle cx="44" cy="45" r="5" fill="#059669"/>
+</svg>
